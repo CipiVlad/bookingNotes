@@ -2,19 +2,19 @@
 
 web-application booking software 
 # technologies
-MERN-stack
+MERN-stack with redux and redux-toolkit
 
 # frontend
 
     => UI/UX: Was sieht der User?
         +   Erstes Setup
-            --  How many rooms are available?
-            --  Room pricing?
-            --  Billing address?  
-            --  Register and Login
+            --  Wieviele Zimmer gibt es in deiner Unterkunft?
+            --  Welchen Preis hat Zimmer Nr. ..?
+            --  Wie lautet deine Rechnungsadresse?  
+            --  Registrierung und Login
         +   Dashboard
             --  Suchen
-            +   Menü
+            +   Menü - Sidebar
                 -- Angebote
                 -- Mietverträge
                 -- Rechnungen
@@ -58,8 +58,44 @@ MERN-stack
                     -- Drucker
                     -- PDF 
 
-
     => Ordner-Struktur
         +   src
             +   components
+                + api
+                + auth
+                + main
+                    -- NavBar.jsx
+                    -- SideBar.jsx
+                    -- UsersView.jsx
+                + dashboard
+                    -- DateView.jsx
+                    -- RoomView.jsx
+                + angebote
+                + mietverträge
+                + rechnungen
+                + vorlagen
+                + statistik
             +   pages
+                -- WelcomePage.js
+                -- Registration.js
+                -- Login.js
+                -- Dashboard.js
+                -- Einstellungen.js
+                -- Buchungsübersicht.js
+                -- Email.js
+                -- Netzwerk.js
+                -- Kundenstamm.js
+                -- Angebote.js
+                -- Mietverträge.js
+                -- Rechnungen.js
+                -- Vorlagen.js
+                -- Statistik.js
+
+    => NPM - Dependencies
+        -- react-router-dom
+        -- react-redux
+        -- @redux-tools/react
+        -- toastify
+        -- @mui/x-data-grid
+        -- @mui/material @emotion/react @emotion/styled
+        -- @mui/icons-material
