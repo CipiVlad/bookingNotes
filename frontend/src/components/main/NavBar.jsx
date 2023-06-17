@@ -10,8 +10,12 @@ import PrintIcon from '@mui/icons-material/Print';
 import MenuIcon from '@mui/icons-material/Menu'
 import SideBar from './SideBar';
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const NavBar = () => {
+    const navigate = useNavigate()
+
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -48,28 +52,44 @@ const NavBar = () => {
                             alignItems="center"
                         >
                             <Grid item xs={1}>
-                                <Tab icon={<ArrowBackIcon />} iconPosition="end" />
+                                <Link onClick={() => navigate(-1)}>
+                                    <Tab icon={<ArrowBackIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<SettingsIcon />} iconPosition="end" />
+                                <Link to={'/einstellungen'}>
+                                    <Tab icon={<SettingsIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<MailIcon />} iconPosition="end" />
+                                <Link to={'/email'}>
+                                    <Tab icon={<MailIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={< CalendarMonthIcon />} iconPosition="end" />
+                                <Link to={'/belegungsplan'}>
+                                    <Tab icon={< CalendarMonthIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<MenuBookIcon />} iconPosition="end" />
+                                <Link to={'/buchungen'}>
+                                    <Tab icon={<MenuBookIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<ShareIcon />} iconPosition="end" />
+                                <Link to={'/netzwerk'}>
+                                    <Tab icon={<ShareIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<PermContactCalendarIcon />} iconPosition="end" />
+                                <Link to={'/kunden'}>
+                                    <Tab icon={<PermContactCalendarIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<PrintIcon />} iconPosition="end" />
+                                <Link to={'/drucker'}>
+                                    <Tab icon={<PrintIcon />} iconPosition="end" />
+                                </Link>
                             </Grid>
                         </Grid>
                     </Box>
@@ -80,5 +100,6 @@ const NavBar = () => {
         </>
     )
 }
+
 
 export default NavBar
