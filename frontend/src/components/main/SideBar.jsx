@@ -25,10 +25,6 @@ export default function SideBar({ state, setState, toggleDrawer }) {
                 {['Angebote', 'Mietverträge', 'Rechnungen', 'Vorlagen', 'Statistik'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
-                            <ListItemIcon>
-                                {/* < HistoryEduIcon />
-                                <HandshakeIcon /> */}
-                            </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
                     </ListItem>
@@ -54,7 +50,6 @@ export default function SideBar({ state, setState, toggleDrawer }) {
         <div>
             {['left'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
                     <Drawer
                         anchor={anchor}
                         open={state[anchor]}

@@ -99,3 +99,6 @@ MERN-stack with redux and redux-toolkit
         -- @mui/x-data-grid
         -- @mui/material @emotion/react @emotion/styled
         -- @mui/icons-material
+        -- npm i --save @devexpress/dx-react-core @devexpress/dx-react-scheduler
+        -- npm i --save @devexpress/dx-react-scheduler-material-ui
+

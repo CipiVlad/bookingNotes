@@ -1,4 +1,3 @@
-
 import { AppBar, Typography, Toolbar, Tabs, Tab, Box, Grid, IconButton } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -11,6 +10,7 @@ import PrintIcon from '@mui/icons-material/Print';
 import MenuIcon from '@mui/icons-material/Menu'
 import SideBar from './SideBar';
 import React from 'react';
+
 const NavBar = () => {
     const [state, setState] = React.useState({
         top: false,
@@ -29,21 +29,20 @@ const NavBar = () => {
 
     return (
         <>
-            <AppBar>
+            <AppBar position="static">
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        // sx={{ mr: 2 }}
                         onClick={toggleDrawer("left", true)}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Box sx={{ flexGrow: 2 }}>
+                    <Box >
                         <Grid container spacing={6}
-
                             direction="row"
                             justifyContent="flex-end"
                             alignItems="center"
