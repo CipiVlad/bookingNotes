@@ -13,7 +13,6 @@ import BelegungsPlan from './pages/BelegungsPlan'
 import Buchungsübersicht from './pages/Buchungsübersicht'
 import Netzwerk from './pages/Netzwerk'
 import Kundenstamm from './pages/Kundenstamm'
-import Drucken from './components/drucken/Drucken'
 
 
 function App() {
@@ -35,8 +34,6 @@ function App() {
           <Route path='/buchungen' element={<Buchungsübersicht />} />
           <Route path='/netzwerk' element={<Netzwerk />} />
           <Route path='/kunden' element={<Kundenstamm />} />
-          <Route path='/drucker' element={<Drucken />} />
-
         </Routes>
       </div>
     </Router>

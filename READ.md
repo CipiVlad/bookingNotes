@@ -1,3 +1,4 @@
+# DOC
 @description:
 
 web-application booking software 
@@ -38,9 +39,10 @@ MERN-stack with redux and redux-toolkit
                     --  Persönliche Daten
                     +   Präferenzeinstellungen
                         -- Light/Dark Modus
-                        -- Startseite wählen
+                        -- Startseite wählen (BelegungsPlan.jsx, Buchungsübersicht.jsx ...)
                         -- Zimmeranzahl, Preise editieren
                         -- Passwörter, Email editieren
+                        -- Backup-Plan (jede Buchungsänderung wird in die Cloud geladen; alle 30 Tage ein locales Backup)
                         ...
                 -- Email
                     -- Posteingang verbunden mit eigener Emailadresse

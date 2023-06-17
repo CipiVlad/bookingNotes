@@ -87,9 +87,7 @@ const NavBar = () => {
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Link to={'/drucker'}>
-                                    <Tab icon={<PrintIcon />} iconPosition="end" />
-                                </Link>
+                                <Tab icon={<PrintIcon />} iconPosition="end" onClick={print} />
                             </Grid>
                         </Grid>
                     </Box>
