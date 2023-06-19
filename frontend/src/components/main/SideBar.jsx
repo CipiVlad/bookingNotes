@@ -25,7 +25,7 @@ export default function SideBar({ state, setState, toggleDrawer }) {
                 {['Angebote', 'Mietverträge', 'Rechnungen', 'Vorlagen', 'Statistik'].map((text, index) => (
                     <Link to={`/${text.toLowerCase()}`}>
 
-                        <ListItem key={index} disablePadding>
+                        <ListItem key={text} disablePadding>
                             <ListItemButton >
                                 <ListItemText primary={text} />
                             </ListItemButton>
