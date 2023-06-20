@@ -1,145 +1,208 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import 'moment/locale/de';
-import { Grid, Typography, Paper } from '@mui/material';
-import { makeStyles, ThemeProvider, createTheme } from '@mui/styles';
+import { Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
 
-
-moment.locale('de');
-
-const theme = createTheme()
-
-const useStyles = makeStyles((theme) => ({
-    container: {
-        width: '100vw',
-        height: '90px',
-        backgroundColor: '#f2f2f2',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-    },
-    numberCircle: {
-        width: '30px',
-        height: '30px',
-        borderRadius: '50%',
-        backgroundColor: theme.palette.primary.main,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'absolute',
-        top: '10px',
-        left: '10px',
-    },
-    dayNumber: {
-        color: 'white',
-        fontWeight: 'bold',
-    },
-    statusBar: {
-        width: '100%',
-        height: '5px',
-        position: 'absolute',
-        bottom: '0',
-        backgroundColor: theme.palette.success.main,
-    },
-    bookedStatus: {
-        width: '0%',
-    },
-    selectedContainer: {
-        backgroundColor: theme.palette.primary.light,
-    },
-}));
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const BookingCalendar = () => {
-    const classes = useStyles();
     const [selectedDate, setSelectedDate] = useState(null);
-    const [bookingData, setBookingData] = useState({
-        '2023-06-24': {
-            startDate: '2023-06-24',
-            endDate: '2023-06-26',
-            name: 'John Doe',
-            phoneNumber: '1234567890',
-            price: '100€',
-        },
-        '2023-06-28': {
-            startDate: '2023-06-28',
-            endDate: '2023-06-30',
-            name: 'Jane Smith',
-            phoneNumber: '9876543210',
-            price: '150€',
-        },
-    });
+    const [bookingData, setBookingData] = useState({});
+    const [showModal, setShowModal] = useState(false);
+
+    const handleContainerClick = (date) => {
+        setSelectedDate(date);
+    };
+
+    const handleBookingSubmit = (formData) => {
+        const { startDate, endDate, name, phoneNumber, price } = formData;
+        const newBookingData = {
+            ...bookingData,
+            [startDate]: {
+                startDate,
+                endDate,
+                name,
+                phoneNumber,
+                price,
+            },
+        };
+        setBookingData(newBookingData);
+        setSelectedDate(null);
+        setShowModal(false);
+    };
 
     const renderCalendarContainer = (date, index) => {
-        const isSelected =
-            selectedDate && moment(selectedDate).isSame(moment(date), 'day');
+        const isSelected = selectedDate && selectedDate.isSame(date, 'day');
         const isBooked = date.format('YYYY-MM-DD') in bookingData;
-        const selectedDateFormatted = selectedDate
-            ? moment(selectedDate).format('YYYY-MM-DD')
-            : null;
+        const selectedDateFormatted = selectedDate ? selectedDate.format('YYYY-MM-DD') : null;
         const isInRange =
             selectedDateFormatted &&
             bookingData[selectedDateFormatted] &&
-            moment(date).isSameOrAfter(
-                moment(bookingData[selectedDateFormatted].startDate),
-                'day'
-            ) &&
-            moment(date).isSameOrBefore(
-                moment(bookingData[selectedDateFormatted].endDate),
-                'day'
-            );
+            date.isSameOrAfter(moment(bookingData[selectedDateFormatted].startDate), 'day') &&
+            date.isSameOrBefore(moment(bookingData[selectedDateFormatted].endDate), 'day');
+
+        const containerStyle = {
+            width: '100vw',
+            height: '90px',
+            backgroundColor: 'lightgray',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            position: 'relative',
+            marginBottom: '5px',
+        };
+
+        const circleStyle = {
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: isSelected ? 'lightblue' : 'white',
+            border: '1px solid black',
+            marginLeft: '10px',
+        };
+
+        const textStyle = {
+            fontWeight: isSelected ? 'bold' : 'normal',
+        };
+
+        const bookingLineStyle = {
+            width: '100%',
+            height: '3px',
+            backgroundColor: 'green',
+            position: 'absolute',
+            bottom: '0',
+            visibility: isInRange ? 'visible' : 'hidden',
+        };
+
+        const bookingDataContent = isBooked ? (
+            <div style={{ position: 'absolute', bottom: '-20px' }}>
+                <p>
+                    Name: {bookingData[date.format('YYYY-MM-DD')].name} - Telefonnummer:{' '}
+                    {bookingData[date.format('YYYY-MM-DD')].phoneNumber} - Preis: {bookingData[date.format('YYYY-MM-DD')].price}
+                </p>
+            </div>
+        ) : null;
 
         const handleContainerClick = () => {
-            setSelectedDate(moment(date));
+            setSelectedDate(date);
+            setShowModal(true);
         };
 
         return (
-            <Grid item key={index}>
-                <Paper
-                    className={`${classes.container} ${isSelected ? classes.selectedContainer : ''}`}
-                    elevation={2}
-                    onClick={handleContainerClick}
-                >
-                    <div className={classes.numberCircle}>
-                        <Typography variant="body1" className={classes.dayNumber}>
-                            {date.format('D')}
-                        </Typography>
+            <Col key={index}>
+                <div style={containerStyle}>
+                    <div style={circleStyle} onClick={handleContainerClick}>
+                        <p style={textStyle}>{date.format('ddd')}</p>
                     </div>
-                    {isBooked && (
-                        <div
-                            className={`${classes.statusBar} ${isInRange ? classes.bookedStatus : ''}`}
-                        >
-                            {/* Hier werden die gebuchten Daten angezeigt */}
-                            {isInRange && (
-                                <div>
-                                    <Typography variant="caption">
-                                        Name: {bookingData[selectedDateFormatted].name}
-                                    </Typography>
-                                    <Typography variant="caption">
-                                        Telefonnummer: {bookingData[selectedDateFormatted].phoneNumber}
-                                    </Typography>
-                                    <Typography variant="caption">
-                                        Preis: {bookingData[selectedDateFormatted].price}
-                                    </Typography>
-                                </div>
-                            )}
-                        </div>
-                    )}
-                </Paper>
-            </Grid>
+                    {bookingDataContent}
+                    {isBooked && <div style={bookingLineStyle}></div>}
+                </div>
+            </Col>
         );
     };
 
+    const renderStatusBars = () => {
+        const statusBars = [];
+        let currentStatus = '';
+        let currentDate = moment().startOf('isoWeek');
+        let isBooked = false;
+
+        while (currentDate.day() !== 0) {
+            const dateKey = currentDate.format('YYYY-MM-DD');
+            if (bookingData[dateKey]) {
+                if (!isBooked) {
+                    currentStatus = `${bookingData[dateKey].name} - ${bookingData[dateKey].phoneNumber} - ${bookingData[dateKey].price}`;
+                    isBooked = true;
+                }
+            } else {
+                if (isBooked) {
+                    statusBars.push(<div key={dateKey} className="status-bar" style={{ width: '10px' }}></div>);
+                    isBooked = false;
+                }
+            }
+            currentDate.add(1, 'day');
+        }
+
+        if (isBooked) {
+            statusBars.push(<div key={currentDate.format('YYYY-MM-DD')} className="status-bar" style={{ width: '10px' }}></div>);
+        }
+
+        return statusBars;
+    };
+
+    const renderBookingForm = () => {
+        if (!selectedDate) {
+            return null;
+        }
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const startDate = moment(formData.get('startDate'), 'DD.MM.YYYY');
+            const endDate = moment(formData.get('endDate'), 'DD.MM.YYYY');
+            const name = formData.get('name');
+            const phoneNumber = formData.get('phoneNumber');
+            const price = formData.get('price');
+            handleBookingSubmit({ startDate, endDate, name, phoneNumber, price });
+        };
+
+        return (
+            <Modal show={showModal} onHide={() => setShowModal(false)} fullscreen>
+                <Modal.Header closeButton>
+                    <Modal.Title>Buchung</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="startDate">
+                            <Form.Label>Anreisedatum</Form.Label>
+                            <Form.Control type="date" name="startDate" required />
+                        </Form.Group>
+
+                        <Form.Group controlId="endDate">
+                            <Form.Label>Abreisedatum</Form.Label>
+                            <Form.Control type="date" name="endDate" required />
+                        </Form.Group>
+
+                        <Form.Group controlId="name">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" name="name" required />
+                        </Form.Group>
+
+                        <Form.Group controlId="phoneNumber">
+                            <Form.Label>Telefonnummer</Form.Label>
+                            <Form.Control type="tel" name="phoneNumber" required />
+                        </Form.Group>
+
+                        <Form.Group controlId="price">
+                            <Form.Label>Preis</Form.Label>
+                            <Form.Control type="number" name="price" required />
+                        </Form.Group>
+
+                        <Button type="submit" variant="primary">
+                            Buchen
+                        </Button>
+                    </Form>
+                </Modal.Body>
+            </Modal>
+        );
+    };
+
+    const calendarContainers = [...Array(7)].map((_, index) => {
+        const date = moment().isoWeekday(index + 1);
+        return renderCalendarContainer(date, index);
+    });
+
     return (
-        <ThemeProvider theme={theme}>
-            <Grid container spacing={1}>
-                {/* Kalendercontainer für die Woche */}
-                {Array.from({ length: 7 }).map((_, index) => {
-                    const date = moment().startOf('isoWeek').add(index, 'days');
-                    return renderCalendarContainer(date, index);
-                })}
-            </Grid>
-        </ThemeProvider>
+        <Container>
+            <Row>{calendarContainers}</Row>
+            <Row>
+                {renderStatusBars()}
+                <div className="status-bar" style={{ flexGrow: 1 }}></div>
+            </Row>
+            {renderBookingForm()}
+        </Container>
     );
 };
 
