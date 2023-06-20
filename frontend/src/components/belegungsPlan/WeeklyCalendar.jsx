@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import BookingCalendar from "./BookingCalendar";
 
 const WeeklyCalendar = () => {
 
@@ -47,7 +48,7 @@ const WeeklyCalendar = () => {
         // const dayOfWeek = (currentDayOfWeek + index) % 7
 
         return (
-            <Grid item xs key={index} style={{ textAlign: 'center' }}>
+            <Grid item xs key={index}>
                 <Typography variant="h6">{weekdays[dayOfWeek]}</Typography>
                 <Typography variant="body1">{date.format('D MMM')}</Typography>
             </Grid>
@@ -61,7 +62,7 @@ const WeeklyCalendar = () => {
                 <IconButton onClick={handlePreviousWeek}>
                     <ChevronLeftIcon />
                 </IconButton>
-                <Typography variant="h6">KW {currentWeek}</Typography>
+                <Typography variant="h6">KW  {currentWeek}</Typography>
                 <IconButton onClick={handleNextWeek}>
                     <ChevronRightIcon />
                 </IconButton>
@@ -72,6 +73,7 @@ const WeeklyCalendar = () => {
             <Grid container spacing={2} marginTop={'2vh'}>
                 {weekDaysList}
             </Grid>
+            {/* <BookingCalendar /> */}
         </div>
     )
 };

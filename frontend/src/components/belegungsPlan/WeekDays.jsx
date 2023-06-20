@@ -59,12 +59,13 @@
 import { Paper, Typography } from '@mui/material'
 
 import WeeklyCalendar from './WeeklyCalendar'
+import BookingCalendar from './BookingCalendar'
 
 const WeekDays = () => {
     return (
         <Paper>
             <WeeklyCalendar />
-            {/* <Typography>Calendar Grid</Typography> */}
+            <BookingCalendar></BookingCalendar>
         </Paper>
     )
 }
