@@ -1,0 +1,65 @@
+/* CSS für BookingCalendar */
+
+.booking-calendar {
+    margin-top: 20px;
+}
+
+.booking-calendar .calendar-container {
+    width: 100%;
+    height: 90px;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.booking-calendar .calendar-container .date-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+.booking-calendar .calendar-container .date-circle p {
+    font-weight: bold;
+}
+
+.booking-calendar .booking-line {
+    width: 0;
+    height: 15px;
+    border-radius: 6px;
+    background-color: green;
+    visibility: hidden;
+    position: absolute;
+    bottom: -20px;
+    left: calc(10px + 25px);
+    transition: width 0.3s;
+}
+
+.booking-calendar .booking-info {
+    position: absolute;
+    bottom: -20px;
+}
+
+.booking-calendar .booking-info p {
+    margin: 0;
+}
+
+.booking-calendar .status-bar {
+    height: 5px;
+    background-color: #f7f7f7;
+    margin-bottom: 5px;
+}
+
+.booking-calendar .booking-form {
+    margin-top: 20px;
+}
