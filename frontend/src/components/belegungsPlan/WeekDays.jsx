@@ -60,12 +60,14 @@ import { Paper, Typography } from '@mui/material'
 
 import WeeklyCalendar from './WeeklyCalendar'
 import BookingCalendar from './BookingCalendar'
+import BookCal_ver2 from './BookCal_ver2'
 
 const WeekDays = () => {
     return (
         <Paper>
             <WeeklyCalendar />
-            <BookingCalendar></BookingCalendar>
+            {/* <BookingCalendar></BookingCalendar> */}
+            <BookCal_ver2 />
         </Paper>
     )
 }

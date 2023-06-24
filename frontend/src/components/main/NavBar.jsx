@@ -42,6 +42,7 @@ const NavBar = () => {
                         aria-label="menu"
                         // sx={{ mr: 2 }}
                         onClick={toggleDrawer("left", true)}
+
                     >
                         <MenuIcon />
                     </IconButton>
@@ -53,45 +54,44 @@ const NavBar = () => {
                         >
                             <Grid item xs={1}>
                                 <Link onClick={() => navigate(-1)}>
-                                    <Tab icon={<ArrowBackIcon />} iconPosition="end" />
+                                    <Tab icon={<ArrowBackIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/einstellungen'}>
-                                    <Tab icon={<SettingsIcon />} iconPosition="end" />
+                                    <Tab icon={<SettingsIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/email'}>
-                                    <Tab icon={<MailIcon />} iconPosition="end" />
+                                    <Tab icon={<MailIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Link to={'/belegungsplan'}>
-                                    <Tab icon={< CalendarMonthIcon />} iconPosition="end" />
+                                <Link to={'/'}>
+                                    <Tab icon={< CalendarMonthIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/buchungen'}>
-                                    <Tab icon={<MenuBookIcon />} iconPosition="end" />
+                                    <Tab icon={<MenuBookIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/netzwerk'}>
-                                    <Tab icon={<ShareIcon />} iconPosition="end" />
+                                    <Tab icon={<ShareIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/kunden'}>
-                                    <Tab icon={<PermContactCalendarIcon />} iconPosition="end" />
+                                    <Tab icon={<PermContactCalendarIcon />} iconPosition="end" style={{ color: 'white' }} />
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<PrintIcon />} iconPosition="end" onClick={print} />
+                                <Tab icon={<PrintIcon />} iconPosition="end" onClick={print} style={{ color: 'white' }} />
                             </Grid>
                         </Grid>
                     </Box>
-
                 </Toolbar>
             </AppBar>
             <SideBar state={state} setState={setState} toggleDrawer={toggleDrawer}></SideBar>

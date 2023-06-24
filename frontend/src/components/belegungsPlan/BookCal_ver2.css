@@ -1,0 +1,17 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    margin: auto;
+    padding: 1%;
+}
+
+.child {
+    background-color: rgb(75, 75, 75);
+    width: 100px;
+    height: 95px;
+    border-radius: 10px;
+    margin: auto auto;
+}

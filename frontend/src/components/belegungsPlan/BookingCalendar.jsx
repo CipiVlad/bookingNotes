@@ -247,8 +247,8 @@
 import React, { useState } from "react";
 import moment from "moment";
 import { Container, Row, Button, Modal, Form } from "react-bootstrap";
-// Importieren Sie die CSS-Datei
 import "./BookingCalendar.css"
+
 const BookingCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [bookingData, setBookingData] = useState({});
@@ -319,7 +319,7 @@ const BookingCalendar = () => {
 
         if (bookingStartDate && bookingEndDate) {
             const bookingDuration = bookingEndDate.diff(bookingStartDate, 'days') + 1;
-            bookingLineWidth = `${bookingDuration * 50}px`;
+            bookingLineWidth = `${bookingDuration * 200}px`;
         }
 
         const handleContainerClick = () => {
