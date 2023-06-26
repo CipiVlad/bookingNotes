@@ -6,12 +6,23 @@
     grid-row-gap: 15px;
     margin: auto;
     padding: 1%;
+    cursor: pointer;
 }
 
 .child {
-    background-color: rgb(75, 75, 75);
+    background-color: rgb(233, 227, 227);
     width: 100px;
     height: 95px;
     border-radius: 10px;
     margin: auto auto;
+    pointer-events: auto;
+}
+
+.child.selected {
+    background-color: yellow;
+}
+
+.child.green {
+    background-color: green;
+    /* Weitere Stile für das gebuchte Element */
 }

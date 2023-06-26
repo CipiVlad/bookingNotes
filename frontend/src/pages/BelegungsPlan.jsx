@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import WeekDays from '../components/belegungsPlan/WeekDays'
 
-const BelegungsPlanBard = () => {
+const BelegungsPlan = () => {
+
     return (
         <WeekDays />
     )
 }
 
-export default BelegungsPlanBard
+export default BelegungsPlan

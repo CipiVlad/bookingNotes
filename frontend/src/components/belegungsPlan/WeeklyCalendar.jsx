@@ -9,9 +9,8 @@ import {
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-import "./WeeklyCalendar.css"; // Importieren Sie die CSS-Datei
-
-const WeeklyCalendar = () => {
+import "./WeeklyCalendar.css";
+const WeeklyCalendar = ({ selectedDay }) => {
     const weekdays = moment.weekdaysMin();
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
 
@@ -34,7 +33,8 @@ const WeeklyCalendar = () => {
         const date = startOfWeek.clone().add(index, "days");
 
         return (
-            <Grid item xs key={index} className="calendar-day">
+            <Grid item xs key={index} className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}>
+
                 <Typography variant="h6" className="day-name">
                     {weekdays[dayOfWeek]}
                 </Typography>
