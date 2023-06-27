@@ -1,18 +1,31 @@
 {
   "bookings": [
     {
-      "startDate": "2023-06-27",
-      "endDate": "2023-06-29",
-      "name": "joe",
-      "phoneNumber": "123",
-      "price": "22",
+      "startDate": "2023-06-26",
+      "endDate": "2023-06-28",
+      "name": "a",
+      "phoneNumber": "2",
+      "price": "2",
       "bookedDays": [
-        "2023-06-27",
-        "2023-06-28",
-        "2023-06-29"
+        "2023-06-26",
+        "2023-06-27"
       ],
       "isBooked": false,
       "id": 1
+    },
+    {
+      "startDate": "2023-06-29",
+      "endDate": "2023-07-02",
+      "name": "2",
+      "phoneNumber": "2",
+      "price": "2",
+      "bookedDays": [
+        "2023-06-29",
+        "2023-06-30",
+        "2023-07-01"
+      ],
+      "isBooked": true,
+      "id": 2
     }
   ]
 }

@@ -24,7 +24,7 @@ const Bookings = () => {
         const startDate = new Date(e.target.startDate.value);
         console.log("startDate: ", startDate);
         const endDate = new Date(e.target.endDate.value);
-        const daysDifference = (endDate - startDate) / (1000 * 3600 * 24);
+        const daysDifference = (endDate - startDate - 1) / (1000 * 3600 * 24);
         const bookedDays = [];
 
         for (let i = 0; i <= daysDifference; i++) {
