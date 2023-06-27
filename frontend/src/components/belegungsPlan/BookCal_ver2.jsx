@@ -225,8 +225,10 @@
 // };
 
 // export default BookCal_ver2;
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import axios from 'axios'
 import "./BookCal_ver2.css";
 
 const BookCal_ver2 = () => {
@@ -242,7 +244,6 @@ const BookCal_ver2 = () => {
     const handleShow = () => {
         setShow(true);
     };
-
     const handleBooking = (e) => {
         e.preventDefault();
 
@@ -257,6 +258,14 @@ const BookCal_ver2 = () => {
             bookedDays.push(bookedDay);
         }
 
+        const isBooked = bookings.some((booking) => {
+            return booking.bookedDays.some((bookedDay) => {
+                return bookedDays.some((day) => {
+                    return day.toDateString() === bookedDay.toDateString();
+                });
+            });
+        });
+
         const newBooking = {
             startDate: e.target.startDate.value,
             endDate: e.target.endDate.value,
@@ -264,12 +273,48 @@ const BookCal_ver2 = () => {
             phoneNumber: e.target.phoneNumber.value,
             price: e.target.price.value,
             bookedDays,
+            isBooked
         };
+
+        // Senden Sie einen POST-Anfrage an den JSON-Server, um die Daten in db.json zu speichern
+        axios.post("http://localhost:3001/bookings", newBooking)
+            .then((response) => {
+                // Daten erfolgreich gespeichert
+                setBookings([...bookings, response.data]);
+                handleClose();
+            })
+            .catch((error) => {
+                // Fehler beim Speichern der Daten
+                console.log(error);
+            });
+
 
         setBookings([...bookings, newBooking]);
 
         handleClose();
     };
+    useEffect(() => {
+        axios.get("http://localhost:3001/bookings")
+            .then(response => {
+                const formattedBookings = response.data.map((booking) => {
+                    const formattedBookedDays = booking.bookedDays.map((day) =>
+                        new Date(day)
+                    );
+
+                    return {
+                        ...booking,
+                        bookedDays: formattedBookedDays,
+                    };
+                });
+
+                setBookings(formattedBookings);
+            })
+            .catch(error => {
+                console.error("Error fetching bookings:", error);
+            });
+    }, []);
+
+
 
     return (
         <>
