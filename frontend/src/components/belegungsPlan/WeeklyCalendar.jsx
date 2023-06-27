@@ -10,7 +10,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 import "./WeeklyCalendar.css";
-const WeeklyCalendar = ({ selectedDay }) => {
+const WeeklyCalendar = ({ selectedDay, bookings }) => {
     const weekdays = moment.weekdaysMin();
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
 

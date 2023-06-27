@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
-import WeekDays from '../components/belegungsPlan/WeekDays'
+import React, { useState, useEffect } from 'react';
+import WeekDays from '../components/belegungsPlan/WeekDays';
+import axios from 'axios';
 
 const BelegungsPlan = () => {
+    const [bookings, setBookings] = useState([]);
 
-    return (
-        <WeekDays />
-    )
-}
+    useEffect(() => {
+        axios
+            .get('http://localhost:3001/bookings')
+            .then((response) => {
+                setBookings(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching bookings:', error);
+            });
+    }, []);
 
-export default BelegungsPlan
+    return <WeekDays bookings={bookings} />;
+};
+
+export default BelegungsPlan;

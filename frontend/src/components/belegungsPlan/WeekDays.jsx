@@ -1,19 +1,19 @@
 import { Paper, Typography } from '@mui/material'
 
 import WeeklyCalendar from './WeeklyCalendar'
-import BookCal_ver2 from './BookCal_ver2'
+import Bookings from './Bookings'
 
 import { useState } from 'react'
 
 
 
-const WeekDays = () => {
+const WeekDays = ({ bookings }) => {
     const [selectedDay, setSelectedDay] = useState(null);
 
     return (
         <Paper>
-            <WeeklyCalendar selectedDay={selectedDay} />
-            <BookCal_ver2 selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
+            <WeeklyCalendar selectedDay={selectedDay} bookings={bookings} />
+            <Bookings selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
         </Paper>
     )
 }
