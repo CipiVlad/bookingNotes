@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import axios from 'axios'
@@ -34,11 +33,12 @@ const Bookings = () => {
             console.log(bookedDays);
         }
 
+
         const isBooked = bookings.some((booking) => {
             return booking.bookedDays.some((bookedDay) => {
                 const currentDate = moment().startOf("day").toDate();
-                const bookedDate = moment(bookedDay).startOf("day").toDate();
-                return moment(currentDate).isSame(bookedDate);
+                const bookedDate = new Date(bookedDay); // Konvertierung in Date-Objekt
+                return moment(currentDate).isSame(bookedDate, "day"); // Vergleich der beiden Daten
             });
         });
 
