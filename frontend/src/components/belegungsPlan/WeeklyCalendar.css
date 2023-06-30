@@ -1,78 +1,7 @@
-/* CSS für WeeklyCalendar
-
 .weekly-calendar {
     text-align: center;
     padding: 20px;
     background-color: #f7f7f7;
-}
-
-.weekly-calendar .calendar-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.weekly-calendar .calendar-header .arrow-icon {
-    cursor: pointer;
-}
-
-.weekly-calendar .calendar-header .week-number {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 20px;
-}
-
-.weekly-calendar .calendar-days {
-    display: flex;
-    justify-content: space-between;
-}
-
-.weekly-calendar .calendar-day {
-    flex-basis: calc(100% / 7);
-}
-
-.weekly-calendar .calendar-day .day-name {
-    font-weight: bold;
-}
-
-.weekly-calendar .calendar-day .day-date {
-    margin-top: 5px;
-}
-
-.weekly-calendar .current-day {
-    background-color: #d8d8d8;
-}
-
-.weekly-calendar .booking-button {
-    margin-top: 20px;
-} */
-
-
-
-/* CSS für WeeklyCalendar */
-
-.weekly-calendar {
-    text-align: center;
-    padding: 20px;
-    background-color: #f7f7f7;
-}
-
-.weekly-calendar .calendar-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.weekly-calendar .calendar-header .arrow-icon {
-    cursor: pointer;
-}
-
-.weekly-calendar .calendar-header .week-number {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0 20px;
 }
 
 .weekly-calendar .calendar-days {
@@ -108,6 +37,24 @@
     background-color: lightgray;
 }
 
-.weekly-calendar .booking-button {
-    margin-top: 20px;
+.weekly-calendar .calendar-day.selected-slot {
+    background-color: #7fff7f;
+}
+
+.parent-div {
+    background-color: #1976d2;
+    padding: 35px;
+    border-radius: 16px;
+}
+
+.child-div {
+    width: 30px;
+    height: 30px;
+    background-color: lightgray;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.child-div.booked {
+    background-color: green;
 }

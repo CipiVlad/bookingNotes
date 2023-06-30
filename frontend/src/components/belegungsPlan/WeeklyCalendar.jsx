@@ -77,196 +77,21 @@
 // export default WeeklyCalendar;
 
 
-// import React, { useState } from "react";
-// import moment from "moment";
-// import {
-//     Typography,
-//     Grid,
-//     IconButton
-// } from "@mui/material";
-// import { Button, Modal, Form } from "react-bootstrap";
-
-// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-// import "./WeeklyCalendar.css";
-
-// const WeeklyCalendar = ({ selectedDay }) => {
-//     const weekdays = moment.weekdaysMin();
-//     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
-//     const [showModal, setShowModal] = useState(false);
-//     const [bookingData, setBookingData] = useState(null);
-
-//     const handlePreviousWeek = () => {
-//         setCurrentWeek((prevWeek) => prevWeek - 1);
-//     };
-
-//     const handleNextWeek = () => {
-//         setCurrentWeek((prevWeek) => prevWeek + 1);
-//     };
-
-//     const handleCurrentWeek = () => {
-//         setCurrentWeek(moment().isoWeek());
-//     };
-
-//     const handleOpenModal = (date) => {
-//         setBookingData({ date });
-//         setShowModal(true);
-//     };
-
-//     const handleCloseModal = () => {
-//         setShowModal(false);
-//     };
-
-//     const handleBooking = (event) => {
-//         event.preventDefault();
-//         const formData = new FormData(event.target);
-//         const booking = {
-//             startDate: formData.get("startDate"),
-//             endDate: formData.get("endDate"),
-//             name: formData.get("name"),
-//             phoneNumber: formData.get("phoneNumber"),
-//             price: formData.get("price"),
-//         };
-
-//         // Send booking data to the server (json-server)
-//         fetch("http://localhost:3001/bookings", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify(booking),
-//         })
-//             .then((response) => response.json())
-//             .then((data) => {
-//                 // Handle successful booking
-//                 console.log("Booking successful", data);
-//                 // Update the UI to reflect the booked dates
-//                 // You can modify this part based on your UI requirements
-//                 setBookingData(null);
-//                 handleCloseModal();
-//             })
-//             .catch((error) => {
-//                 // Handle booking error
-//                 console.error("Error booking", error);
-//                 // Display an error message to the user if needed
-//             });
-//     };
-
-
-//     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
-
-//     const weekDaysList = weekdays.map((day, index) => {
-//         const dayOfWeek = (index + 1) % 7;
-//         const date = startOfWeek.clone().add(index, "days");
-
-//         return (
-//             <Grid
-//                 item
-//                 xs
-//                 key={index}
-//                 className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""
-//                     }`}
-//             >
-//                 <div
-//                     className={`booking-slot ${bookingData && bookingData.date.isSame(date, "day")
-//                         ? "booked"
-//                         : "not-booked"
-//                         }`}
-//                     onClick={() => handleOpenModal(date)}
-//                 ></div>
-//                 <Typography variant="h6" className="day-name">
-//                     {weekdays[dayOfWeek]}
-//                 </Typography>
-//                 <Typography variant="body1" className="day-date">
-//                     {date.format("D MMM")}
-//                 </Typography>
-//             </Grid>
-//         );
-//     });
-
-//     return (
-//         <div className="weekly-calendar">
-//             <div className="calendar-header">
-//                 <IconButton onClick={handlePreviousWeek} className="arrow-icon">
-//                     <ChevronLeftIcon />
-//                 </IconButton>
-//                 <Typography variant="h6" className="week-number">
-//                     KW {currentWeek}
-//                 </Typography>
-//                 <IconButton onClick={handleNextWeek} className="arrow-icon">
-//                     <ChevronRightIcon />
-//                 </IconButton>
-//             </div>
-//             <div>
-//                 <Button
-//                     variant="outlined"
-//                     onClick={handleCurrentWeek}
-//                     className="booking-button"
-//                 >
-//                     Zurück zur aktuellen Woche
-//                 </Button>
-//             </div>
-//             <Grid container spacing={2} className="calendar-days">
-//                 {weekDaysList}
-//             </Grid>
-//             <Modal show={showModal} onHide={handleCloseModal}>
-//                 <Modal.Header closeButton>
-//                     <Modal.Title>Buchung</Modal.Title>
-//                 </Modal.Header>
-//                 <Modal.Body>
-//                     <Form onSubmit={handleBooking}>
-//                         <Form.Group controlId="startDate">
-//                             <Form.Label>Anreisedatum</Form.Label>
-//                             <Form.Control type="date" name="startDate" required />
-//                         </Form.Group>
-
-//                         <Form.Group controlId="endDate">
-//                             <Form.Label>Abreisedatum</Form.Label>
-//                             <Form.Control type="date" name="endDate" required />
-//                         </Form.Group>
-
-//                         <Form.Group controlId="name">
-//                             <Form.Label>Name</Form.Label>
-//                             <Form.Control type="text" name="name" required />
-//                         </Form.Group>
-
-//                         <Form.Group controlId="phoneNumber">
-//                             <Form.Label>Telefonnummer</Form.Label>
-//                             <Form.Control type="tel" name="phoneNumber" required />
-//                         </Form.Group>
-
-//                         <Form.Group controlId="price">
-//                             <Form.Label>Preis</Form.Label>
-//                             <Form.Control type="number" name="price" required />
-//                         </Form.Group>
-
-//                         <Button type="submit" variant="primary">
-//                             Buchen
-//                         </Button>
-//                     </Form>
-//                 </Modal.Body>
-//             </Modal>
-//         </div>
-//     );
-// };
-
-// export default WeeklyCalendar;
-
-
-
-
 
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import {
     Typography,
     Grid,
-    IconButton
+    IconButton,
+    Button
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Button, Modal, Form } from "react-bootstrap";
+import axios from "axios";
+import { Modal, Form } from "react-bootstrap";
+import { isAfter, isBefore, isEqual, eachDayOfInterval, format } from 'date-fns';
+
 
 import "./WeeklyCalendar.css";
 
@@ -274,19 +99,16 @@ const WeeklyCalendar = ({ selectedDay }) => {
     const weekdays = moment.weekdaysMin();
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
     const [showModal, setShowModal] = useState(false);
-    const [bookingData, setBookingData] = useState(null);
+    const [bookingData, setBookingData] = useState({
+        startDate: "",
+        endDate: "",
+        name: "",
+        phoneNumber: "",
+        price: "",
+    });
     const [bookings, setBookings] = useState([]);
+    const [bookedDays, setBookedDays] = useState([]); // Deklaration der bookedDays-Variable hinzugefügt
 
-    useEffect(() => {
-        fetch("http://localhost:3001/bookings")
-            .then((response) => response.json())
-            .then((data) => {
-                setBookings(data);
-            })
-            .catch((error) => {
-                console.error("Error fetching bookings", error);
-            });
-    }, []);
 
     const handlePreviousWeek = () => {
         setCurrentWeek((prevWeek) => prevWeek - 1);
@@ -300,8 +122,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
         setCurrentWeek(moment().isoWeek());
     };
 
-    const handleOpenModal = (date) => {
-        setBookingData({ date });
+    const handleOpenModal = () => {
         setShowModal(true);
     };
 
@@ -311,67 +132,99 @@ const WeeklyCalendar = ({ selectedDay }) => {
 
     const handleBooking = (event) => {
         event.preventDefault();
-        const formData = new FormData(event.target);
-        const booking = {
-            startDate: formData.get("startDate"),
-            endDate: formData.get("endDate"),
-            name: formData.get("name"),
-            phoneNumber: formData.get("phoneNumber"),
-            price: formData.get("price"),
+
+        // Extrahiere die Werte aus den Formularfeldern
+        const { startDate, endDate, name, phoneNumber, price } = bookingData;
+
+        // Erstelle ein Objekt mit den Buchungsdaten
+        const newBooking = {
+            startDate: moment(startDate).format("YYYY-MM-DD"),
+            endDate: moment(endDate).format("YYYY-MM-DD"),
+            name,
+            phoneNumber,
+            price,
         };
 
-        // Send booking data to the server (json-server)
-        fetch("http://localhost:3001/bookings", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(booking),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                // Handle successful booking
-                console.log("Booking successful", data);
-                // Update the UI to reflect the booked dates
-                setBookingData(null);
+        // Sende die Buchungsdaten an den Server
+        axios
+            .post("http://localhost:3001/bookings", newBooking)
+            .then((response) => {
+                // Update die Buchungsdaten in der State-Variable
+                setBookings((prevBookings) => [...prevBookings, response.data]);
+
+                // Setze die Formulardaten zurück
+                setBookingData({
+                    startDate: "",
+                    endDate: "",
+                    name: "",
+                    phoneNumber: "",
+                    price: "",
+                });
+
+                // Schließe das Modal
                 handleCloseModal();
             })
             .catch((error) => {
-                // Handle booking error
-                console.error("Error booking", error);
-                // Display an error message to the user if needed
+                console.error("Fehler beim Buchen:", error);
             });
     };
 
-    const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
 
+    useEffect(() => {
+        axios
+            .get("http://localhost:3001/bookings")
+            .then((response) => {
+                const bookings = response.data;
+                const bookedDays = [];
+
+                bookings.forEach((booking) => {
+                    const { startDate, endDate } = booking;
+                    const range = eachDayOfInterval({ start: new Date(startDate), end: new Date(endDate) });
+
+                    //entferne das letzte item aus einem array, damit das Abreisedatum nicht grün gefärbt ist
+                    range.pop()
+                    range.forEach((date) => {
+                        const formattedDate = format(date, "yyyy-MM-dd");
+                        if (!bookedDays.includes(formattedDate)) {
+                            bookedDays.push(formattedDate);
+                        }
+                    });
+                });
+
+                setBookedDays(bookedDays);
+                setBookings(bookings);
+            })
+            .catch((error) => {
+                console.error("Fehler beim Abrufen der Buchungsdaten:", error);
+            });
+    }, []);
+
+    const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
     const weekDaysList = weekdays.map((day, index) => {
         const dayOfWeek = (index + 1) % 7;
         const date = startOfWeek.clone().add(index, "days");
 
-        const isBooked = bookings.some((booking) =>
-            moment(booking.startDate).isSame(date, "day")
-        );
+        const isBooked = bookedDays.includes(date.format("YYYY-MM-DD"));
+        const isStartDate = date.isSame(bookingData.startDate, "day");
+        const isEndDate = date.isSame(bookingData.endDate, "day");
+        const isWithinRange = date.isBetween(bookingData.startDate, bookingData.endDate, "day");
 
         return (
             <Grid
                 item
                 xs
                 key={index}
-                className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""
-                    }`}
+                className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}
+                onClick={handleOpenModal}
             >
-                <div
-                    className={`booking-slot ${isBooked ? "booked" : "not-booked"
-                        }`}
-                    onClick={() => handleOpenModal(date)}
-                >
-                    <Typography variant="h6" className="day-name">
-                        {weekdays[dayOfWeek]}
-                    </Typography>
-                    <Typography variant="body1" className="day-date">
-                        {date.format("D MMM")}
-                    </Typography>
+                <Typography variant="h6" className="day-name">
+                    {weekdays[dayOfWeek]}
+                </Typography>
+                <Typography variant="body1" className="day-date">
+                    {date.format("D MMM")}
+                </Typography>
+                <div className="parent-div">
+                    <div className={`child-div ${isBooked ? "booked" : ""} ${isStartDate || isEndDate || isWithinRange ? "selected-slot" : ""}`} />
                 </div>
             </Grid>
         );
@@ -391,17 +244,14 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 </IconButton>
             </div>
             <div>
-                <Button
-                    variant="outlined"
-                    onClick={handleCurrentWeek}
-                    className="booking-button"
-                >
+                <Button variant="outlined" onClick={handleCurrentWeek} className="booking-button">
                     Zurück zur aktuellen Woche
                 </Button>
             </div>
             <Grid container spacing={2} className="calendar-days">
                 {weekDaysList}
             </Grid>
+
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Buchung</Modal.Title>
@@ -410,27 +260,67 @@ const WeeklyCalendar = ({ selectedDay }) => {
                     <Form onSubmit={handleBooking}>
                         <Form.Group controlId="startDate">
                             <Form.Label>Anreisedatum</Form.Label>
-                            <Form.Control type="date" name="startDate" required />
+                            <Form.Control
+                                type="date"
+                                name="startDate"
+                                required
+                                value={bookingData.startDate}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, startDate: e.target.value })
+                                }
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="endDate">
                             <Form.Label>Abreisedatum</Form.Label>
-                            <Form.Control type="date" name="endDate" required />
+                            <Form.Control
+                                type="date"
+                                name="endDate"
+                                required
+                                value={bookingData.endDate}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, endDate: e.target.value })
+                                }
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="name">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" name="name" required />
+                            <Form.Control
+                                type="text"
+                                name="name"
+                                required
+                                value={bookingData.name}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, name: e.target.value })
+                                }
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="phoneNumber">
                             <Form.Label>Telefonnummer</Form.Label>
-                            <Form.Control type="tel" name="phoneNumber" required />
+                            <Form.Control
+                                type="tel"
+                                name="phoneNumber"
+                                required
+                                value={bookingData.phoneNumber}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, phoneNumber: e.target.value })
+                                }
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="price">
                             <Form.Label>Preis</Form.Label>
-                            <Form.Control type="number" name="price" required />
+                            <Form.Control
+                                type="number"
+                                name="price"
+                                required
+                                value={bookingData.price}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, price: e.target.value })
+                                }
+                            />
                         </Form.Group>
 
                         <Button type="submit" variant="primary">
