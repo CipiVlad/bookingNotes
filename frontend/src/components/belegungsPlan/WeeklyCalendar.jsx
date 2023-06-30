@@ -131,7 +131,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
         setShowModal(false);
     };
 
-    const handleBooking = (event) => {
+    const handleBooking = async (event) => {
         event.preventDefault();
 
         // Extrahiere die Werte aus den Formularfeldern
@@ -146,32 +146,38 @@ const WeeklyCalendar = ({ selectedDay }) => {
             price,
         };
 
-        // Sende die Buchungsdaten an den Server
-        axios
-            .post("http://localhost:3001/bookings", newBooking)
-            .then((response) => {
-                // Update die Buchungsdaten in der State-Variable
-                setBookings((prevBookings) => [...prevBookings, response.data]);
+        try {
+            // Sende die Buchungsdaten an den Server
+            const response = await axios.post("http://localhost:3001/bookings", newBooking);
 
-                // Setze die Formulardaten zurück
-                setBookingData({
-                    startDate: "",
-                    endDate: "",
-                    name: "",
-                    phoneNumber: "",
-                    price: "",
-                });
+            // Update die Buchungsdaten in der State-Variable
+            setBookings((prevBookings) => [...prevBookings, response.data]);
 
-                // Schließe das Modal
-                handleCloseModal();
-            })
-            .catch((error) => {
-                console.error("Fehler beim Buchen:", error);
+            // Setze die Formulardaten zurück
+            setBookingData({
+                startDate: "",
+                endDate: "",
+                name: "",
+                phoneNumber: "",
+                price: "",
             });
+
+            // Schließe das Modal
+            handleCloseModal();
+
+            // Aktualisiere die Daten sofort
+            updateCalendarData();
+        } catch (error) {
+            console.error("Fehler beim Buchen:", error);
+        }
     };
 
 
     useEffect(() => {
+        updateCalendarData();
+    }, [bookings]);
+
+    const updateCalendarData = () => {
         axios
             .get("http://localhost:3001/bookings")
             .then((response) => {
@@ -183,7 +189,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
                     const range = eachDayOfInterval({ start: new Date(startDate), end: new Date(endDate) });
 
                     //entferne das letzte item aus einem array, damit das Abreisedatum nicht grün gefärbt ist
-                    range.pop()
+                    range.pop();
                     range.forEach((date) => {
                         const formattedDate = format(date, "yyyy-MM-dd");
                         if (!bookedDays.includes(formattedDate)) {
@@ -198,7 +204,8 @@ const WeeklyCalendar = ({ selectedDay }) => {
             .catch((error) => {
                 console.error("Fehler beim Abrufen der Buchungsdaten:", error);
             });
-    }, []);
+    };
+
 
     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
     const weekDaysList = weekdays.map((day, index) => {
