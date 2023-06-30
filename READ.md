@@ -104,3 +104,8 @@ MERN-stack with redux and redux-toolkit
         -- npm i --save @devexpress/dx-react-core @devexpress/dx-react-scheduler
         -- npm i --save @devexpress/dx-react-scheduler-material-ui
 
+
+# notes: 
+    => nach jedem abschlossenen Jahr
+        -- save all bookings to pdf file
+        -- save to unique local folder (i.e "Bookings 2023")

@@ -94,7 +94,7 @@ const NavBar = () => {
                     </Box>
                 </Toolbar>
             </AppBar>
-            {/* <SideBar state={state} setState={setState} toggleDrawer={toggleDrawer}></SideBar> */}
+            <SideBar state={state} setState={setState} toggleDrawer={toggleDrawer}></SideBar>
         </>
     )
 }

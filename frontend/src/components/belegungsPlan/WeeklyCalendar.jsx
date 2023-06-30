@@ -97,6 +97,7 @@ import "./WeeklyCalendar.css";
 
 const WeeklyCalendar = ({ selectedDay }) => {
     const weekdays = moment.weekdaysMin();
+    const year = moment().isoWeekYear()
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
     const [showModal, setShowModal] = useState(false);
     const [bookingData, setBookingData] = useState({
@@ -237,7 +238,8 @@ const WeeklyCalendar = ({ selectedDay }) => {
                     <ChevronLeftIcon />
                 </IconButton>
                 <Typography variant="h6" className="week-number">
-                    KW {currentWeek}
+                    {`${year} KW ${currentWeek}`}
+
                 </Typography>
                 <IconButton onClick={handleNextWeek} className="arrow-icon">
                     <ChevronRightIcon />
