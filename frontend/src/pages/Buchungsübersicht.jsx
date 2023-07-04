@@ -1,39 +1,51 @@
-import React from 'react'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 
 const Buchungsübersicht = () => {
+    const [bookings, setBookings] = useState([]);
+
+    useEffect(() => {
+        // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
+        axios.get('http://localhost:3001/bookings')
+            .then(response => {
+                // Daten speichern
+                setBookings(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error('Fehler beim Abrufen der Buchungsdaten:', error);
+            });
+    }, []);
+
     return (
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Buchungszeitraum</th>
-                    <th>Anfrage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>21.06.-25.06.23</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>21.06.-25.06.23</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td>21.06.-25.06.23</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </Table>
+        <>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Buchungszeitraum</th>
+                        <th>Emailadresse</th>
+                        <th>Telefonnummer</th>
+                        <th>Personenanzahl</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {bookings.map((booking, index) => (
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{booking.name}</td>
+                            <td>{booking.startDate} - {booking.endDate}</td>
+                            <td>{booking.emailAddress}</td>
+                            <td>{booking.phoneNumber}</td>
+                            <td>{booking.persons}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </>
     );
 }
 
-export default Buchungsübersicht
+export default Buchungsübersicht;

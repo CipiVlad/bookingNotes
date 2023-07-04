@@ -109,6 +109,8 @@ const WeeklyCalendar = ({ selectedDay }) => {
         endDate: "",
         name: "",
         phoneNumber: "",
+        emailAddress: "",
+        persons: "",
         price: "",
     });
     //Array von Buchungsdaten, die vom Server aberufen werden
@@ -145,7 +147,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
         event.preventDefault();
 
         // Extrahiere die Werte aus den Formularfeldern
-        const { startDate, endDate, name, phoneNumber, price } = bookingData;
+        const { startDate, endDate, name, phoneNumber, price, emailAddress, persons } = bookingData;
 
         // Erstelle ein Objekt mit den Buchungsdaten
         const newBooking = {
@@ -153,6 +155,8 @@ const WeeklyCalendar = ({ selectedDay }) => {
             endDate: moment(endDate).format("YYYY-MM-DD"),
             name,
             phoneNumber,
+            emailAddress,
+            persons,
             price,
         };
 
@@ -169,6 +173,8 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 endDate: "",
                 name: "",
                 phoneNumber: "",
+                emailAddress: "",
+                persons: "",
                 price: "",
             });
 
@@ -327,6 +333,32 @@ const WeeklyCalendar = ({ selectedDay }) => {
                                 value={bookingData.phoneNumber}
                                 onChange={(e) =>
                                     setBookingData({ ...bookingData, phoneNumber: e.target.value })
+                                }
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="emailAddress">
+                            <Form.Label>Emailadresse</Form.Label>
+                            <Form.Control
+                                type="email"
+                                name="phoneNumber"
+                                required
+                                value={bookingData.emailAddress}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, emailAddress: e.target.value })
+                                }
+                            />
+                        </Form.Group>
+
+                        <Form.Group controlId="persons">
+                            <Form.Label>Personenanzahl</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="phoneNumber"
+                                required
+                                value={bookingData.persons}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, persons: e.target.value })
                                 }
                             />
                         </Form.Group>

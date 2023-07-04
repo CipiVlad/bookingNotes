@@ -1,11 +1,13 @@
 {
   "bookings": [
     {
-      "startDate": "2023-07-03",
-      "endDate": "2023-07-05",
-      "name": "a",
-      "phoneNumber": "2",
-      "price": "22",
+      "startDate": "2023-07-05",
+      "endDate": "2023-07-08",
+      "name": "joe",
+      "phoneNumber": "123",
+      "emailAddress": "joe@g.com",
+      "persons": "1",
+      "price": "27",
       "id": 1
     }
   ]
