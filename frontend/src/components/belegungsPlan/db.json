@@ -1,20 +1,12 @@
 {
   "bookings": [
     {
-      "startDate": "2023-06-26",
-      "endDate": "2023-06-29",
-      "name": "joe",
-      "phoneNumber": "123",
-      "price": "99",
+      "startDate": "2023-07-03",
+      "endDate": "2023-07-05",
+      "name": "a",
+      "phoneNumber": "2",
+      "price": "22",
       "id": 1
-    },
-    {
-      "startDate": "2023-07-01",
-      "endDate": "2023-07-02",
-      "name": "cipi",
-      "phoneNumber": "123",
-      "price": "95",
-      "id": 2
     }
   ]
 }

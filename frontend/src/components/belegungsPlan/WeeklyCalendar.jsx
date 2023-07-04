@@ -98,8 +98,12 @@ import "./WeeklyCalendar.css";
 const WeeklyCalendar = ({ selectedDay }) => {
     const weekdays = moment.weekdaysMin();
     const year = moment().isoWeekYear()
+
+    //!states
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
     const [showModal, setShowModal] = useState(false);
+
+    //User Input mit Daten für den Server
     const [bookingData, setBookingData] = useState({
         startDate: "",
         endDate: "",
@@ -107,10 +111,16 @@ const WeeklyCalendar = ({ selectedDay }) => {
         phoneNumber: "",
         price: "",
     });
+    //Array von Buchungsdaten, die vom Server aberufen werden
+    //jedes array Element repräsentiert eine Buchung
     const [bookings, setBookings] = useState([]);
-    const [bookedDays, setBookedDays] = useState([]); // Deklaration der bookedDays-Variable hinzugefügt
+
+    //Array von Datumswerten, die bereits gebucht sind
+    //verwendet um die Kalenderdaten zu aktualisieren, gebuchte Tage farblich zu markieren
+    const [bookedDays, setBookedDays] = useState([]);
 
 
+    //event-handler
     const handlePreviousWeek = () => {
         setCurrentWeek((prevWeek) => prevWeek - 1);
     };
@@ -172,10 +182,10 @@ const WeeklyCalendar = ({ selectedDay }) => {
         }
     };
 
-
+    // Aktualisiere die Daten bei jedem rendern
     useEffect(() => {
         updateCalendarData();
-    }, [bookings]);
+    }, []);
 
     const updateCalendarData = () => {
         axios
@@ -197,6 +207,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
                         }
                     });
                 });
+
 
                 setBookedDays(bookedDays);
                 setBookings(bookings);
@@ -241,16 +252,17 @@ const WeeklyCalendar = ({ selectedDay }) => {
     return (
         <div className="weekly-calendar">
             <div className="calendar-header">
-                <IconButton onClick={handlePreviousWeek} className="arrow-icon">
-                    <ChevronLeftIcon />
-                </IconButton>
-                <Typography variant="h6" className="week-number">
-                    {`${year} KW ${currentWeek}`}
 
+                <Typography variant="h6" className="week-number">
+                    <IconButton onClick={handlePreviousWeek} className="arrow-icon">
+                        <ChevronLeftIcon />
+                    </IconButton>
+                    {`${year} KW ${currentWeek}`}
+                    <IconButton onClick={handleNextWeek} className="arrow-icon">
+                        <ChevronRightIcon />
+                    </IconButton>
                 </Typography>
-                <IconButton onClick={handleNextWeek} className="arrow-icon">
-                    <ChevronRightIcon />
-                </IconButton>
+
             </div>
             <div>
                 <Button variant="outlined" onClick={handleCurrentWeek} className="booking-button">
