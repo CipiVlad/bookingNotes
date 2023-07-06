@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-
+import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
 const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);
 
@@ -29,20 +29,23 @@ const Buchungsübersicht = () => {
                         <th>Emailadresse</th>
                         <th>Telefonnummer</th>
                         <th>Personenanzahl</th>
+                        <th>Zimmer</th>
+                        <th>Bearbeiten</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {bookings.map((booking, index) => (
-                        <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{booking.name}</td>
-                            <td>{booking.startDate} - {booking.endDate}</td>
-                            <td>{booking.emailAddress}</td>
-                            <td>{booking.phoneNumber}</td>
-                            <td>{booking.persons}</td>
-                        </tr>
-                    ))}
-                </tbody>
+                {bookings.map((booking, index) => (
+                    <ÜbersichtsCard
+                        key={index}
+                        id={booking.id}
+                        name={booking.name}
+                        startDate={booking.startDate}
+                        endDate={booking.endDate}
+                        emailAddress={booking.emailAddress}
+                        phoneNumber={booking.phoneNumber}
+                        persons={booking.persons}
+                        room={booking.room}
+                    />
+                ))}
             </Table>
         </>
     );

@@ -147,7 +147,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
         event.preventDefault();
 
         // Extrahiere die Werte aus den Formularfeldern
-        const { startDate, endDate, name, phoneNumber, price, emailAddress, persons } = bookingData;
+        const { startDate, endDate, name, phoneNumber, price, emailAddress, persons, room } = bookingData;
 
         // Erstelle ein Objekt mit den Buchungsdaten
         const newBooking = {
@@ -158,6 +158,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
             emailAddress,
             persons,
             price,
+            room
         };
 
         try {
@@ -176,6 +177,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 emailAddress: "",
                 persons: "",
                 price: "",
+                room
             });
 
             // Schließe das Modal
@@ -372,6 +374,18 @@ const WeeklyCalendar = ({ selectedDay }) => {
                                 value={bookingData.price}
                                 onChange={(e) =>
                                     setBookingData({ ...bookingData, price: e.target.value })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="room">
+                            <Form.Label>Zimmer</Form.Label>
+                            <Form.Control
+                                type="number"
+                                name="room"
+                                required
+                                value={bookingData.room}
+                                onChange={(e) =>
+                                    setBookingData({ ...bookingData, room: e.target.value })
                                 }
                             />
                         </Form.Group>

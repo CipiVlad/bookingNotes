@@ -1,3 +1,6 @@
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 export default function ÜbersichtsCard(props) {
     return (
         <>
@@ -14,6 +17,14 @@ export default function ÜbersichtsCard(props) {
                     </td>
                     <td>{props.persons}</td>
                     <td>{props.room}</td>
+                    <td>
+                        <IconButton>
+                            <EditIcon></EditIcon>
+                        </IconButton>
+                        <IconButton>
+                            <DeleteForeverIcon></DeleteForeverIcon>
+                        </IconButton>
+                    </td>
                 </tr>
             </tbody >
         </>
