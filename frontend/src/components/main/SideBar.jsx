@@ -8,9 +8,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
-import HandshakeIcon from '@mui/icons-material/Handshake';
 import { Link } from 'react-router-dom';
 
 export default function SideBar({ state, setState, toggleDrawer }) {
@@ -24,9 +21,9 @@ export default function SideBar({ state, setState, toggleDrawer }) {
         >
             <List >
                 {['Angebote', 'Mietverträge', 'Rechnungen', 'Vorlagen', 'Statistik'].map((text, index) => (
-                    <Link to={`/${text.toLowerCase()}`}>
+                    <Link to={`/${text.toLowerCase()}`} key={index}>
 
-                        <ListItem key={text} disablePadding>
+                        <ListItem key={index} disablePadding>
                             <ListItemButton  >
                                 <ListItemText primary={text} />
                             </ListItemButton>

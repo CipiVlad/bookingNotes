@@ -2,11 +2,13 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
+
 const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);
 
-    useEffect(() => {
-        // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
+    // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
+
+    const loadingData = async () => {
         axios.get('http://localhost:3001/bookings')
             .then(response => {
                 // Daten speichern
@@ -16,7 +18,24 @@ const Buchungsübersicht = () => {
             .catch(error => {
                 console.error('Fehler beim Abrufen der Buchungsdaten:', error);
             });
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/bookings/${id}`)
+            const bookingList = bookings.filter(booking => booking.id == id)
+            setBookings(bookingList)
+            loadingData()
+            console.log('Daten gelöscht');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        loadingData()
     }, []);
+
 
     return (
         <>
@@ -44,6 +63,7 @@ const Buchungsübersicht = () => {
                         phoneNumber={booking.phoneNumber}
                         persons={booking.persons}
                         room={booking.room}
+                        onDelete={handleDelete}
                     />
                 ))}
             </Table>
