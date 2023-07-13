@@ -8,6 +8,10 @@ const Buchungsübersicht = () => {
 
     // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
 
+    useEffect(() => {
+        loadingData()
+    }, []);
+
     const loadingData = async () => {
         axios.get('http://localhost:3001/bookings')
             .then(response => {
@@ -19,6 +23,8 @@ const Buchungsübersicht = () => {
                 console.error('Fehler beim Abrufen der Buchungsdaten:', error);
             });
     }
+
+    // Löschen einzelner Buchungen
 
     const handleDelete = async (id) => {
         try {
@@ -32,9 +38,13 @@ const Buchungsübersicht = () => {
         }
     }
 
-    useEffect(() => {
-        loadingData()
-    }, []);
+
+    // Editieren einzelner Buchungen
+    const handleEdit = async () => {
+
+        console.log('edited');
+    }
+
 
 
     return (
@@ -64,6 +74,7 @@ const Buchungsübersicht = () => {
                         persons={booking.persons}
                         room={booking.room}
                         onDelete={handleDelete}
+                        onEdit={handleEdit}
                     />
                 ))}
             </Table>

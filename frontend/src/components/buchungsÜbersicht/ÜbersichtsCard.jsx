@@ -3,9 +3,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function ÜbersichtsCard(props) {
+
     const handleDelete = () => {
         props.onDelete(props.id);
     };
+    const handleEdit = () => {
+        props.onEdit(props)
+    }
+
     return (
         <>
             <tbody>
@@ -22,7 +27,7 @@ export default function ÜbersichtsCard(props) {
                     <td>{props.persons}</td>
                     <td>{props.room}</td>
                     <td>
-                        <IconButton>
+                        <IconButton onClick={handleEdit}>
                             <EditIcon></EditIcon>
                         </IconButton>
                         <IconButton onClick={handleDelete}>

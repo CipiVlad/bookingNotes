@@ -10,6 +10,28 @@
       "price": "57",
       "room": "2",
       "id": 1
+    },
+    {
+      "startDate": "2023-07-10",
+      "endDate": "2023-07-15",
+      "name": "mika",
+      "phoneNumber": "988 000",
+      "emailAddress": "m@j.com",
+      "persons": "2",
+      "price": "27",
+      "room": "3",
+      "id": 2
+    },
+    {
+      "startDate": "2023-07-17",
+      "endDate": "2023-07-18",
+      "name": "roy",
+      "phoneNumber": "5830 202",
+      "emailAddress": "r@oha.com",
+      "persons": "1",
+      "price": "22",
+      "room": "4",
+      "id": 3
     }
   ]
 }

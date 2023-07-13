@@ -9,15 +9,13 @@ import {
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import axios from "axios";
-import { Modal, Form } from "react-bootstrap";
-import { isAfter, isBefore, isEqual, eachDayOfInterval, format } from 'date-fns';
-import { ToastContainer, toast } from 'react-toastify'
+import { eachDayOfInterval, format } from 'date-fns';
 
 import "./WeeklyCalendar.css";
 import RoomLogic from "./RoomLogic";
+import ModalBooking from '../modal/ModalBooking'
 
 const WeeklyCalendar = ({ selectedDay }) => {
-    const weekdays = moment.weekdaysMin();
     const year = moment().isoWeekYear()
 
     //!states
@@ -98,7 +96,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 emailAddress: "",
                 persons: "",
                 price: "",
-                room
+                room: ""
             });
 
             // Schließe das Modal
@@ -146,42 +144,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
             });
     };
 
-
-    // const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
-    // const weekDaysList = weekdays.map((day, index) => {
-    //     const dayOfWeek = (index + 1) % 7;
-    //     const date = startOfWeek.clone().add(index, "days");
-
-    //     const isBooked = bookedDays.includes(date.format("YYYY-MM-DD"));
-    //     const isStartDate = date.isSame(bookingData.startDate, "day");
-    //     const isEndDate = date.isSame(bookingData.endDate, "day");
-    //     const isWithinRange = date.isBetween(bookingData.startDate, bookingData.endDate, "day");
-
-    //     return (
-
-    //         <Grid
-    //             item
-    //             xs
-    //             key={index}
-    //             className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}
-    //             onClick={handleOpenModal}
-    //         >
-    //             <Typography variant="h6" className="day-name">
-    //                 {weekdays[dayOfWeek]}
-    //             </Typography>
-    //             <Typography variant="body1" className="day-date">
-    //                 {date.format("D MMM")}
-    //             </Typography>
-    //             <div className="parent-div">
-    //                 <div className={`child-div ${isBooked ? "booked" : ""} ${isStartDate || isEndDate || isWithinRange ? "selected-slot" : ""}`} />
-    //             </div>
-    //         </Grid>
-    //     );
-    // });
-
-
-
-
     return (
         <div className="weekly-calendar">
             <div className="calendar-header">
@@ -203,9 +165,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 </Button>
             </div>
 
-            {/* <Grid container spacing={2} className="calendar-days">
-                {weekDaysList}
-            </Grid> */}
             <RoomLogic
                 currentWeek={currentWeek}
                 bookedDays={bookedDays}
@@ -214,121 +173,13 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 handleOpenModal={handleOpenModal}
             />
 
-            <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Buchung</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handleBooking}>
-                        <Form.Group controlId="startDate">
-                            <Form.Label>Anreisedatum</Form.Label>
-                            <Form.Control
-                                type="date"
-                                name="startDate"
-                                required
-                                value={bookingData.startDate}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, startDate: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="endDate">
-                            <Form.Label>Abreisedatum</Form.Label>
-                            <Form.Control
-                                type="date"
-                                name="endDate"
-                                required
-                                value={bookingData.endDate}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, endDate: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="name">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="name"
-                                required
-                                value={bookingData.name}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, name: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="phoneNumber">
-                            <Form.Label>Telefonnummer</Form.Label>
-                            <Form.Control
-                                type="tel"
-                                name="phoneNumber"
-                                required
-                                value={bookingData.phoneNumber}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, phoneNumber: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="emailAddress">
-                            <Form.Label>Emailadresse</Form.Label>
-                            <Form.Control
-                                type="email"
-                                name="phoneNumber"
-                                required
-                                value={bookingData.emailAddress}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, emailAddress: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="persons">
-                            <Form.Label>Personenanzahl</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="phoneNumber"
-                                required
-                                value={bookingData.persons}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, persons: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Form.Group controlId="price">
-                            <Form.Label>Preis</Form.Label>
-                            <Form.Control
-                                type="number"
-                                name="price"
-                                required
-                                value={bookingData.price}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, price: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="room">
-                            <Form.Label>Zimmer</Form.Label>
-                            <Form.Control
-                                type="number"
-                                name="room"
-                                required
-                                value={bookingData.room}
-                                onChange={(e) =>
-                                    setBookingData({ ...bookingData, room: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-
-                        <Button type="submit" variant="primary">
-                            Buchen
-                        </Button>
-                    </Form>
-                </Modal.Body>
-            </Modal>
+            <ModalBooking
+                showModal={showModal}
+                handleCloseModal={handleCloseModal}
+                handleBooking={handleBooking}
+                bookingData={bookingData}
+                setBookingData={setBookingData}
+            />
         </div>
     );
 };
