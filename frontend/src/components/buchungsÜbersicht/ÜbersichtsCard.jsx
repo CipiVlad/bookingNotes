@@ -3,12 +3,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function ÜbersichtsCard(props) {
-
     const handleDelete = () => {
         props.onDelete(props.id);
     };
-
-
     return (
         <>
             <tbody>

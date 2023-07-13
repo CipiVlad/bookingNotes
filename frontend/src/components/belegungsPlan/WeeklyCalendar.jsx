@@ -14,6 +14,7 @@ import { isAfter, isBefore, isEqual, eachDayOfInterval, format } from 'date-fns'
 import { ToastContainer, toast } from 'react-toastify'
 
 import "./WeeklyCalendar.css";
+import RoomLogic from "./RoomLogic";
 
 const WeeklyCalendar = ({ selectedDay }) => {
     const weekdays = moment.weekdaysMin();
@@ -146,39 +147,39 @@ const WeeklyCalendar = ({ selectedDay }) => {
     };
 
 
-    const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
-    const weekDaysList = weekdays.map((day, index) => {
-        const dayOfWeek = (index + 1) % 7;
-        const date = startOfWeek.clone().add(index, "days");
+    // const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
+    // const weekDaysList = weekdays.map((day, index) => {
+    //     const dayOfWeek = (index + 1) % 7;
+    //     const date = startOfWeek.clone().add(index, "days");
 
-        const isBooked = bookedDays.includes(date.format("YYYY-MM-DD"));
-        const isStartDate = date.isSame(bookingData.startDate, "day");
-        const isEndDate = date.isSame(bookingData.endDate, "day");
-        const isWithinRange = date.isBetween(bookingData.startDate, bookingData.endDate, "day");
+    //     const isBooked = bookedDays.includes(date.format("YYYY-MM-DD"));
+    //     const isStartDate = date.isSame(bookingData.startDate, "day");
+    //     const isEndDate = date.isSame(bookingData.endDate, "day");
+    //     const isWithinRange = date.isBetween(bookingData.startDate, bookingData.endDate, "day");
 
-        return (
+    //     return (
 
-            <Grid
-                item
-                xs
-                key={index}
-                className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}
-                onClick={handleOpenModal}
-            >
-                <Typography variant="h6" className="day-name">
-                    {weekdays[dayOfWeek]}
-                </Typography>
-                <Typography variant="body1" className="day-date">
-                    {date.format("D MMM")}
-                </Typography>
-                <div className="parent-div">
-                    <div className={`child-div ${isBooked ? "booked" : ""} ${isStartDate || isEndDate || isWithinRange ? "selected-slot" : ""}`} />
-                </div>
-            </Grid>
-        );
-    });
+    //         <Grid
+    //             item
+    //             xs
+    //             key={index}
+    //             className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}
+    //             onClick={handleOpenModal}
+    //         >
+    //             <Typography variant="h6" className="day-name">
+    //                 {weekdays[dayOfWeek]}
+    //             </Typography>
+    //             <Typography variant="body1" className="day-date">
+    //                 {date.format("D MMM")}
+    //             </Typography>
+    //             <div className="parent-div">
+    //                 <div className={`child-div ${isBooked ? "booked" : ""} ${isStartDate || isEndDate || isWithinRange ? "selected-slot" : ""}`} />
+    //             </div>
+    //         </Grid>
+    //     );
+    // });
 
-    //error-handling
+
 
 
     return (
@@ -202,9 +203,16 @@ const WeeklyCalendar = ({ selectedDay }) => {
                 </Button>
             </div>
 
-            <Grid container spacing={2} className="calendar-days">
+            {/* <Grid container spacing={2} className="calendar-days">
                 {weekDaysList}
-            </Grid>
+            </Grid> */}
+            <RoomLogic
+                currentWeek={currentWeek}
+                bookedDays={bookedDays}
+                bookingData={bookingData}
+                selectedDay={selectedDay}
+                handleOpenModal={handleOpenModal}
+            />
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
