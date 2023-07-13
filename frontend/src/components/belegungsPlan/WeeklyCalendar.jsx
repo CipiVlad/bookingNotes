@@ -31,6 +31,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
         emailAddress: "",
         persons: "",
         price: "",
+        room: ""
     });
     //Array von Buchungsdaten, die vom Server aberufen werden
     //jedes array Element repräsentiert eine Buchung

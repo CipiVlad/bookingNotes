@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
+import ModalBooking from '../components/modal/ModalBooking';
 
 const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);
@@ -38,15 +39,6 @@ const Buchungsübersicht = () => {
         }
     }
 
-
-    // Editieren einzelner Buchungen
-    const handleEdit = async () => {
-
-        console.log('edited');
-    }
-
-
-
     return (
         <>
             <Table striped bordered hover>
@@ -74,7 +66,7 @@ const Buchungsübersicht = () => {
                         persons={booking.persons}
                         room={booking.room}
                         onDelete={handleDelete}
-                        onEdit={handleEdit}
+                        bookings={bookings}
                     />
                 ))}
             </Table>

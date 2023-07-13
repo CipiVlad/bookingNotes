@@ -13,6 +13,7 @@ import BelegungsPlan from './pages/BelegungsPlan'
 import Buchungsübersicht from './pages/Buchungsübersicht'
 import Netzwerk from './pages/Netzwerk'
 import Kundenstamm from './pages/Kundenstamm'
+import Buchungs_Bearbeitung from './pages/Buchungs_Bearbeitung'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/einstellungen' element={<Einstellungen />} />
           <Route path='/email' element={<Email />} />
           <Route path='/buchungen' element={<Buchungsübersicht />} />
+          <Route path='/edit/:id' element={<Buchungs_Bearbeitung />} />
           <Route path='/netzwerk' element={<Netzwerk />} />
           <Route path='/kunden' element={<Kundenstamm />} />
         </Routes>

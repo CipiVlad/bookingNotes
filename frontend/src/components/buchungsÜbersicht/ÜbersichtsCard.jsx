@@ -1,15 +1,12 @@
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { Link } from 'react-router-dom';
 
 export default function ÜbersichtsCard(props) {
-
     const handleDelete = () => {
         props.onDelete(props.id);
     };
-    const handleEdit = () => {
-        props.onEdit(props)
-    }
 
     return (
         <>
@@ -27,9 +24,11 @@ export default function ÜbersichtsCard(props) {
                     <td>{props.persons}</td>
                     <td>{props.room}</td>
                     <td>
-                        <IconButton onClick={handleEdit}>
-                            <EditIcon></EditIcon>
-                        </IconButton>
+                        <Link to={`/edit/${props.id}`} state={props.bookings}>
+                            <IconButton>
+                                <EditIcon></EditIcon>
+                            </IconButton>
+                        </Link>
                         <IconButton onClick={handleDelete}>
                             <DeleteForeverIcon></DeleteForeverIcon>
                         </IconButton>
