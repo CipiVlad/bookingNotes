@@ -23,6 +23,7 @@ export default function ÜbersichtsCard(props) {
                     </td>
                     <td>{props.persons}</td>
                     <td>{props.room}</td>
+                    <td>{props.price}</td>
                     <td>
                         <Link to={`/edit/${props.id}`} state={props.bookings}>
                             <IconButton>

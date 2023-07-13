@@ -21,6 +21,17 @@
       "price": "27",
       "room": "3",
       "id": 3
+    },
+    {
+      "startDate": "2023-07-13",
+      "endDate": "2023-07-15",
+      "name": "jonas",
+      "phoneNumber": "123 494",
+      "emailAddress": "jo@nas.com",
+      "persons": "1",
+      "price": "35",
+      "room": "7",
+      "id": 4
     }
   ]
 }

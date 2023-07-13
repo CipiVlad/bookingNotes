@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { Form, Button } from "react-bootstrap";
 import moment from "moment";
 import axios from "axios";
 
-
-
 const Buchungs_Bearbeitung = () => {
-
 
     //verarbeitet die dynamischen parameter der endpoints 
     //hier z.B. '/edit/id'

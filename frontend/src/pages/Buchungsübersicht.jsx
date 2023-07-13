@@ -51,6 +51,7 @@ const Buchungsübersicht = () => {
                         <th>Telefonnummer</th>
                         <th>Personenanzahl</th>
                         <th>Zimmer</th>
+                        <th>Preis</th>
                         <th>Bearbeiten</th>
                     </tr>
                 </thead>
@@ -65,6 +66,7 @@ const Buchungsübersicht = () => {
                         phoneNumber={booking.phoneNumber}
                         persons={booking.persons}
                         room={booking.room}
+                        price={booking.price}
                         onDelete={handleDelete}
                         bookings={bookings}
                     />
