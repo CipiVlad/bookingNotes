@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['date-fns', '@emotion/react'],
+      external: ['date-fns', '@emotion/react', '@emotion/styled'],
     },
   },
 })
