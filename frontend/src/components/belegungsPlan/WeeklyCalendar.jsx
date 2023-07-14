@@ -41,7 +41,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
     //verwendet um die Kalenderdaten zu aktualisieren, gebuchte Tage farblich zu markieren
     const [bookedDays, setBookedDays] = useState([]);
 
-
     //event-handler
     const handlePreviousWeek = () => {
         setCurrentWeek((prevWeek) => prevWeek - 1);
@@ -136,7 +135,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
                     });
                 });
 
-
                 setBookedDays(bookedDays);
                 setBookings(bookings);
             })
@@ -148,7 +146,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
     return (
         <div className="weekly-calendar">
             <div className="calendar-header">
-
                 <Typography variant="h6" className="week-number">
                     <IconButton onClick={handlePreviousWeek} className="arrow-icon">
                         <ChevronLeftIcon />
@@ -158,7 +155,6 @@ const WeeklyCalendar = ({ selectedDay }) => {
                         <ChevronRightIcon />
                     </IconButton>
                 </Typography>
-
             </div>
             <div>
                 <Button variant="outlined" onClick={handleCurrentWeek} className="booking-button">

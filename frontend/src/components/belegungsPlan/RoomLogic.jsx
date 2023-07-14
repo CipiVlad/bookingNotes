@@ -6,6 +6,7 @@ import {
     Button
 } from "@mui/material";
 import moment from 'moment';
+import ÜbersichtsCard from '../buchungsÜbersicht/ÜbersichtsCard'
 
 const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOpenModal }) => {
     const weekdays = moment.weekdaysMin();
@@ -20,7 +21,6 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
         const isWithinRange = date.isBetween(bookingData.startDate, bookingData.endDate, "day");
 
         return (
-
             <Grid
                 item
                 xs
@@ -42,9 +42,11 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
     });
 
     return (
-        <Grid container spacing={2} className="calendar-days">
-            {weekDaysList}
-        </Grid>
+        <>
+            <Grid container spacing={2} className="calendar-days">
+                {weekDaysList}
+            </Grid>
+        </>
     )
 }
 
