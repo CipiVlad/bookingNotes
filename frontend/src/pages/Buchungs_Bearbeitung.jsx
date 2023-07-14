@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { Form, Button } from "react-bootstrap";
 import moment from "moment";
@@ -13,27 +13,38 @@ const Buchungs_Bearbeitung = () => {
     //ermöglicht es den state aus der ÜbersichtsCard hierher mitzunehmen
     const location = useLocation()
     //wenn loaction.state null ist und User auf zurück klickt, dann navigate zu '/buchungen'
-    let data = location.state || navigate('/buchungen')
+    let data = location.state || [];
     // console.log(data);
 
-    //herausfiltern des 
-    let detail = data.filter((elt) => {
-        // console.log(elt.id);
-        return elt.id == id
-    })
-    // console.log(detail[0].id);
-    const [bookingData, setBookingData] = useState(
-        {
-            startDate: detail[0].startDate,
-            endDate: detail[0].endDate,
-            name: detail[0].name,
-            phoneNumber: detail[0].phoneNumber,
-            emailAddress: detail[0].emailAddress,
-            persons: detail[0].persons,
-            price: detail[0].price,
-            room: detail[0].room
+    useEffect(() => {
+        if (!location.state) {
+            navigate("/buchungen");
         }
-    )
+    }, [location.state, navigate]);
+
+    let detail = data.filter((elt) => elt.id == id);
+    const initialBookingData = detail.length > 0 ? { // überprüft ob daten nicht null sind, sonst gibts einen error
+        startDate: detail[0].startDate,
+        endDate: detail[0].endDate,
+        name: detail[0].name,
+        phoneNumber: detail[0].phoneNumber,
+        emailAddress: detail[0].emailAddress,
+        persons: detail[0].persons,
+        price: detail[0].price,
+        room: detail[0].room
+    } : {
+        startDate: "",
+        endDate: "",
+        name: "",
+        phoneNumber: "",
+        emailAddress: "",
+        persons: "",
+        price: "",
+        room: ""
+    };
+
+    const [bookingData, setBookingData] = useState(initialBookingData);
+
 
     const [bookings, setBookings] = useState([]);
 

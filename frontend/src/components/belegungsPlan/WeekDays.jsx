@@ -25,16 +25,15 @@ import { Paper, Typography } from '@mui/material'
 
 import WeeklyCalendar from './WeeklyCalendar'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 
 
 const WeekDays = () => {
     const [selectedDay, setSelectedDay] = useState(null);
-
     return (
-        <Paper>
-            <WeeklyCalendar selectedDay={selectedDay} />
+        <Paper> <WeeklyCalendar selectedDay={selectedDay} />
         </Paper>
     )
 }

@@ -9,6 +9,9 @@ import moment from 'moment';
 import ÜbersichtsCard from '../buchungsÜbersicht/ÜbersichtsCard'
 
 const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOpenModal }) => {
+
+    console.log();
+
     const weekdays = moment.weekdaysMin();
     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
     const weekDaysList = weekdays.map((day, index) => {

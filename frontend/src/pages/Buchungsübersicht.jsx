@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
 import ModalBooking from '../components/modal/ModalBooking';
 
-const Buchungsübersicht = ({ }) => {
+const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);
 
     // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
