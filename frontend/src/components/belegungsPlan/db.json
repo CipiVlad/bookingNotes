@@ -12,14 +12,14 @@
       "id": 1
     },
     {
-      "startDate": "2023-07-10",
+      "startDate": "2023-07-13",
       "endDate": "2023-07-15",
-      "name": "mika",
-      "phoneNumber": "988 000",
-      "emailAddress": "m@j.com",
-      "persons": "2",
-      "price": "28",
-      "room": "2",
+      "name": "joe",
+      "phoneNumber": "123",
+      "emailAddress": "123@j.com",
+      "persons": "3",
+      "price": "72",
+      "room": "3",
       "id": 2
     }
   ]

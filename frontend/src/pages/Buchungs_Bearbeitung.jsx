@@ -5,14 +5,15 @@ import moment from "moment";
 import axios from "axios";
 
 const Buchungs_Bearbeitung = () => {
-
+    const navigate = useNavigate()
     //verarbeitet die dynamischen parameter der endpoints 
     //hier z.B. '/edit/id'
     const { id } = useParams()
 
     //ermöglicht es den state aus der ÜbersichtsCard hierher mitzunehmen
     const location = useLocation()
-    let data = location.state
+    //wenn loaction.state null ist und User auf zurück klickt, dann navigate zu '/buchungen'
+    let data = location.state || navigate('/buchungen')
     // console.log(data);
 
     //herausfiltern des 
@@ -20,7 +21,7 @@ const Buchungs_Bearbeitung = () => {
         // console.log(elt.id);
         return elt.id == id
     })
-    console.log(detail[0].id);
+    // console.log(detail[0].id);
     const [bookingData, setBookingData] = useState(
         {
             startDate: detail[0].startDate,
@@ -37,7 +38,6 @@ const Buchungs_Bearbeitung = () => {
     const [bookings, setBookings] = useState([]);
 
     //event-handler
-    const navigate = useNavigate()
     const handleEdit = async (id) => {
 
         // Extrahiere die Werte aus den Formularfeldern
