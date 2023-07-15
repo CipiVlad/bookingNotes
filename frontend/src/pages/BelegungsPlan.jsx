@@ -16,7 +16,7 @@ const BelegungsPlan = () => {
             });
     }, []);
 
-    return <WeekDays bookings={bookings} />;
+    return <WeekDays bookings={bookings} setBookings={setBookings} />;
 };
 
 export default BelegungsPlan;

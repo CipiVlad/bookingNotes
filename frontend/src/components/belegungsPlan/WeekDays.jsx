@@ -1,40 +1,29 @@
-// import { Paper, Typography } from '@mui/material'
-
-// import WeeklyCalendar from './WeeklyCalendar'
-// import Bookings from './Bookings'
-
-// import { useState } from 'react'
-
-
-
-// const WeekDays = ({ bookings }) => {
-//     const [selectedDay, setSelectedDay] = useState(null);
-
-//     return (
-//         <Paper>
-//             <WeeklyCalendar selectedDay={selectedDay} bookings={bookings} />
-//             <Bookings selectedDay={selectedDay} setSelectedDay={setSelectedDay} />
-//         </Paper>
-//     )
-// }
-
-// export default WeekDays
-
-
 import { Paper, Typography } from '@mui/material'
 
 import WeeklyCalendar from './WeeklyCalendar'
 
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 
 
 
-const WeekDays = () => {
+const WeekDays = ({ bookings, setBookings }) => {
+    console.log(bookings);
+
     const [selectedDay, setSelectedDay] = useState(null);
     return (
-        <Paper> <WeeklyCalendar selectedDay={selectedDay} />
-        </Paper>
+        <>
+            <Paper>
+                <WeeklyCalendar selectedDay={selectedDay} bookings={bookings} setBookings={setBookings} />
+            </Paper>
+
+            {bookings.map((e, i) => (
+                <div key={i}>
+                    <p>{e.name} --
+                        {e.startDate} - {e.endDate} --
+                        {e.persons} Personen</p>
+                </div>
+            ))}
+        </>
     )
 }
 

@@ -15,7 +15,7 @@ import "./WeeklyCalendar.css";
 import RoomLogic from "./RoomLogic";
 import ModalBooking from '../modal/ModalBooking'
 
-const WeeklyCalendar = ({ selectedDay }) => {
+const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
     const year = moment().isoWeekYear()
 
     //!states
@@ -35,7 +35,7 @@ const WeeklyCalendar = ({ selectedDay }) => {
     });
     //Array von Buchungsdaten, die vom Server aberufen werden
     //jedes array Element repräsentiert eine Buchung
-    const [bookings, setBookings] = useState([]);
+    // const [bookings, setBookings] = useState([]);
 
     //Array von Datumswerten, die bereits gebucht sind
     //verwendet um die Kalenderdaten zu aktualisieren, gebuchte Tage farblich zu markieren
