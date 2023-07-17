@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import "moment/locale/de"
 import {
     Typography,
     Grid,
@@ -16,10 +17,13 @@ import RoomLogic from "./RoomLogic";
 import ModalBooking from '../modal/ModalBooking'
 
 const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
+
+
     const year = moment().isoWeekYear()
 
     //!states
     const [currentWeek, setCurrentWeek] = useState(moment().isoWeek());
+
     const [showModal, setShowModal] = useState(false);
 
     //User Input mit Daten für den Server

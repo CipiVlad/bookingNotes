@@ -14,7 +14,9 @@ import Buchungsübersicht from './pages/Buchungsübersicht'
 import Netzwerk from './pages/Netzwerk'
 import Kundenstamm from './pages/Kundenstamm'
 import Buchungs_Bearbeitung from './pages/Buchungs_Bearbeitung'
-
+import Mietvertragsvorlage from './pages/subpages/vorlagen/Mietvertragsvorlage'
+import Angebotsvorlage from './pages/subpages/vorlagen/Angebotsvorlage'
+import Rechnungsvorlage from './pages/subpages/vorlagen/Rechnungsvorlage'
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
           <Route path='/mietverträge' element={<Mietverträge />} />
           <Route path='/rechnungen' element={<Rechnungen />} />
           <Route path='/vorlagen' element={<Vorlagen />} />
+          <Route path='/vorlagen/mietvertragsvorlage' element={<Mietvertragsvorlage />} />
+          <Route path='/vorlagen/angebotsvorlage' element={<Angebotsvorlage />} />
+          <Route path='/vorlagen/rechnungsvorlage' element={<Rechnungsvorlage />} />
           <Route path='/statistik' element={<Statistik />} />
           <Route path='/einstellungen' element={<Einstellungen />} />
           <Route path='/email' element={<Email />} />

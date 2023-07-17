@@ -17,11 +17,11 @@ export default function SideBar({ state, setState, toggleDrawer }) {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List className='sidebar_list'>
+            <List  >
                 {['Angebote', 'Mietverträge', 'Rechnungen', 'Vorlagen', 'Statistik'].map((text, index) => (
-                    <Link to={`/${text.toLowerCase()}`} key={index}>
+                    <Link to={`/${text.toLowerCase()}`} key={index} >
 
-                        <ListItem key={index} disablePadding>
+                        <ListItem key={index} disablePadding >
                             <ListItemButton  >
                                 <ListItemText primary={text} />
                             </ListItemButton>
