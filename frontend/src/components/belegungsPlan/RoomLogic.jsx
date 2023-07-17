@@ -1,16 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Typography,
     Grid,
-    IconButton,
-    Button
 } from "@mui/material";
 import moment from 'moment';
-import ÜbersichtsCard from '../buchungsÜbersicht/ÜbersichtsCard'
 
 const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOpenModal }) => {
-
-    console.log();
 
     const weekdays = moment.weekdaysMin();
     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
