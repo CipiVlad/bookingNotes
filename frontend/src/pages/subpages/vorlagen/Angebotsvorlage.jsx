@@ -2,7 +2,9 @@ import React from 'react'
 
 const Angebotsvorlage = () => {
     return (
-        <div>Angebotsvorlage</div>
+        <div>
+            <h2>Angebotsvorlage</h2>
+        </div>
     )
 }
 
