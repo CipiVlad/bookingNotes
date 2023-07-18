@@ -37,7 +37,7 @@ const Vorlagen = () => {
                             <Card.Body>
                                 <Card.Title>{e.name}</Card.Title>
                                 <Card.Text>{e.text}</Card.Text>
-                                <Link to={e.link}>bearbeiten</Link>
+                                <Link to={e.link}>auf geht's</Link>
                             </Card.Body>
                         </Card>
                     </Col>

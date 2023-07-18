@@ -34,7 +34,7 @@ const NavBar = () => {
     return (
         <>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar className='appBar' >
                     <IconButton
                         size="large"
                         edge="start"
