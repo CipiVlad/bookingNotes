@@ -17,6 +17,9 @@ import Buchungs_Bearbeitung from './pages/Buchungs_Bearbeitung'
 import Mietvertragsvorlage from './pages/subpages/vorlagen/Mietvertragsvorlage'
 import Angebotsvorlage from './pages/subpages/vorlagen/Angebotsvorlage'
 import Rechnungsvorlage from './pages/subpages/vorlagen/Rechnungsvorlage'
+import AngebotsvorlagenEditor from './pages/subpages/vorlagen/AngebotsvorlagenEditor'
+
+
 
 function App() {
 
@@ -32,6 +35,7 @@ function App() {
           <Route path='/vorlagen' element={<Vorlagen />} />
           <Route path='/vorlagen/mietvertragsvorlage' element={<Mietvertragsvorlage />} />
           <Route path='/vorlagen/angebotsvorlage' element={<Angebotsvorlage />} />
+          <Route path='/vorlagen/angebotsvorlageneditor' element={<AngebotsvorlagenEditor />} />
           <Route path='/vorlagen/rechnungsvorlage' element={<Rechnungsvorlage />} />
           <Route path='/statistik' element={<Statistik />} />
           <Route path='/einstellungen' element={<Einstellungen />} />

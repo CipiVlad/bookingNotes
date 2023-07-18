@@ -1,4 +1,4 @@
-import ExampleTheme from "./themes/ExampleTheme";
+import EditorTheme from '../src/themes/EditorTheme'
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -29,7 +29,7 @@ function Placeholder() {
 
 const editorConfig = {
     // The editor theme
-    theme: ExampleTheme,
+    theme: EditorTheme,
     // Handling of errors during update
     onError(error) {
         throw error;

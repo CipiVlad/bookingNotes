@@ -9,7 +9,7 @@ const Vorlagen = () => {
             id: 1,
             name: 'Angebote',
             link: '/vorlagen/angebotsvorlage',
-            text: 'hier kannst du z.B. neue Mietvertragsvorlagen anlegen,verschiedene Varianten hinterlegen und einfach die Vorlage kopieren',
+            text: 'hier kannst du z.B. neue Angebotsvorlagen anlegen,verschiedene Varianten hinterlegen und einfach die Vorlage kopieren',
 
         },
         {
