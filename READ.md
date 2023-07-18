@@ -98,14 +98,20 @@ MERN-stack with redux and redux-toolkit
         -- react-redux
         -- @redux-tools/react
         -- toastify
-        -- @mui/x-data-grid
         -- @mui/material @emotion/react @emotion/styled
         -- @mui/icons-material
-        -- npm i --save @devexpress/dx-react-core @devexpress/dx-react-scheduler
-        -- npm i --save @devexpress/dx-react-scheduler-material-ui
+        -- npm install --save lexical @lexical/react
 
 
 # notes: 
+    
+    => für die Textbearbeitung in den Vorlagen:
+        -- npm install --save lexical @lexical/react
+        lexical ist ein Texteditor von Meta, kompatibel mit React und erleichtert die Textverarbeitung
+        https://lexical.dev/docs/getting-started/react
+        https://www.youtube.com/watch?v=qIqxvk2qcmo
+    
     => nach jedem abschlossenen Jahr
         -- save all bookings to pdf file
         -- save to unique local folder (i.e "Bookings 2023")
+
