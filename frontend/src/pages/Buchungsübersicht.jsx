@@ -14,7 +14,7 @@ const Buchungsübersicht = () => {
     }, []);
 
     const loadingData = async () => {
-        axios.get('http://localhost:3001/bookings')
+        await axios.get('http://localhost:3001/bookings')
             .then(response => {
                 // Daten speichern
                 setBookings(response.data);

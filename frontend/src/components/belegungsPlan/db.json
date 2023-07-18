@@ -8,7 +8,7 @@
       "emailAddress": "j@ls.com",
       "persons": "2",
       "price": "57",
-      "room": "1",
+      "room": "2",
       "id": 1
     },
     {
@@ -26,7 +26,7 @@
       "startDate": "2023-07-15",
       "endDate": "2023-07-22",
       "name": "joe",
-      "phoneNumber": "2",
+      "phoneNumber": "255 662 942 22",
       "emailAddress": "123@m.de",
       "persons": "1",
       "price": "12",

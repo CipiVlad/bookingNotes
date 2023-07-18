@@ -1,11 +1,22 @@
 import React from 'react'
-import Editor from '../../../Editor'
-import '../../../Editor.css'
+import AngebotsvorlagenListe from './AngebotsvorlagenListe'
+import './Angebotsvorlage.css'
+import data from './AngebotsvorlagenListe.json'
+
 const Angebotsvorlage = () => {
     return (
-        <div>
-            <h2>Angebotsvorlage</h2>
-            <Editor />
+        <div className="container">
+            <div>
+                <h2>Vorlagentext</h2>
+                {
+                    data.offeringlist.map((e, index) => (
+                        <article key={index}>
+                            <p>{e.text}</p>
+                        </article>
+                    ))
+                }
+            </div>
+            <AngebotsvorlagenListe />
         </div>
     )
 }

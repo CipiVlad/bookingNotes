@@ -33,7 +33,7 @@ const Vorlagen = () => {
             <Row xs={1} md={3} className="g-4">
                 {arrayVorlagen.map((e, idx) => (
                     <Col key={idx}>
-                        <Card style={{ margin: '10vh auto', width: '250px', height: '250px' }}>
+                        <Card style={{ margin: '10vh auto', width: '320px', height: '300px' }}>
                             <Card.Body>
                                 <Card.Title>{e.name}</Card.Title>
                                 <Card.Text>{e.text}</Card.Text>
