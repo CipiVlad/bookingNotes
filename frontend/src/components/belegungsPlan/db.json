@@ -1,37 +1,26 @@
 {
   "bookings": [
     {
-      "startDate": "2023-07-21",
-      "endDate": "2023-07-30",
-      "name": "jowe",
-      "phoneNumber": "123 344",
-      "emailAddress": "j@ls.com",
-      "persons": "2",
-      "price": "57",
-      "room": "2",
+      "startDate": "2023-07-17",
+      "endDate": "2023-07-19",
+      "name": "Sally Dumars",
+      "phoneNumber": "(01) 838 555 91",
+      "emailAddress": "s.dumars@booked.com",
+      "persons": "1",
+      "price": "27",
+      "room": "1",
       "id": 1
     },
     {
-      "startDate": "2023-07-13",
-      "endDate": "2023-07-15",
-      "name": "joe",
-      "phoneNumber": "123",
-      "emailAddress": "123@j.com",
+      "startDate": "2023-07-20",
+      "endDate": "2023-07-23",
+      "name": "Johnny die Tulpe",
+      "phoneNumber": "07283 39102",
+      "emailAddress": "tulpe83@lol.com",
       "persons": "1",
-      "price": "70",
+      "price": "27",
       "room": "1",
       "id": 2
-    },
-    {
-      "startDate": "2023-07-15",
-      "endDate": "2023-07-22",
-      "name": "joe",
-      "phoneNumber": "255 662 942 22",
-      "emailAddress": "123@m.de",
-      "persons": "1",
-      "price": "12",
-      "room": "1",
-      "id": 3
     }
   ],
   "offeringlist": [

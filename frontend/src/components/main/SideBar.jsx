@@ -7,6 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
+import '../../scss/main/SideBar.css'
 
 export default function SideBar({ state, setState, toggleDrawer }) {
 
@@ -17,7 +18,7 @@ export default function SideBar({ state, setState, toggleDrawer }) {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <List  >
+            <List className='sidebar_list' >
                 {['Angebote', 'Mietverträge', 'Rechnungen', 'Vorlagen', 'Statistik'].map((text, index) => (
                     <Link to={`/${text.toLowerCase()}`} key={index} >
 

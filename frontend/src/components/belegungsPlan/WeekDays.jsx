@@ -15,14 +15,15 @@ const WeekDays = ({ bookings, setBookings }) => {
             <Paper>
                 <WeeklyCalendar selectedDay={selectedDay} bookings={bookings} setBookings={setBookings} />
             </Paper>
-
-            {bookings.map((e, i) => (
-                <div key={i}>
-                    <p>{e.name} --
-                        {e.startDate} - {e.endDate} --
-                        {e.persons} Personen</p>
-                </div>
-            ))}
+            <Paper>
+                {bookings.map((e, i) => (
+                    <div key={i}>
+                        <span>Name: {e.name}</span>
+                        <span>Zeitraum: {e.startDate} - {e.endDate}</span>
+                        <span>Persrsonen: {e.persons} </span>
+                    </div>
+                ))}
+            </Paper >
         </>
     )
 }

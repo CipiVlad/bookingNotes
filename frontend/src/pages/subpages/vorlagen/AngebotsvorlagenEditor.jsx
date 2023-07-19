@@ -12,14 +12,12 @@ const AngebotsvorlagenEditor = () => {
     const navigate = useNavigate()
 
     const { id } = useParams()
-    console.log(id);
+    // console.log(id);
     //ermöglicht es den state aus der ÜbersichtsCard hierher mitzunehmen
     const location = useLocation()
     //wenn loaction.state null ist und User auf zurück klickt, dann navigate zu '/buchungen'
     let data = location.state || [];
-    console.log('data= ', data);
-    console.log('id params: ', id);
-
+    // console.log('data= ', data);
 
 
     useEffect(() => {
@@ -28,9 +26,10 @@ const AngebotsvorlagenEditor = () => {
         }
     }, [location.state, navigate]);
 
-    let detail = data.filter((elt) => elt.id == id);
-
-
+    let detail = data.filter((elt) => {
+        return elt.id == id
+    });
+    // console.log(detail[0].text);
 
 
     function handleSave() {
@@ -48,6 +47,7 @@ const AngebotsvorlagenEditor = () => {
 
     return (
         <div>AngebotsvorlagenEditor
+
             <Editor />
             <IconButton onClick={handleSave}>
                 <SaveIcon />

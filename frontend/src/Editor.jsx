@@ -22,7 +22,8 @@ import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
 
 function Placeholder() {
-    return <div className="editor-placeholder">Formuliere ein Angebot, das keiner ablehnen kann..</div>;
+    return <div className="editor-placeholder">Formuliere ein Angebot, das keiner ablehnen kann..
+    </div>;
 }
 
 

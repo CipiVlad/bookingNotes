@@ -15,10 +15,9 @@ const Angebotsvorlage = () => {
         await axios.get('http://localhost:3001/offeringlist')
             .then((response) => {
                 setOfferings(response.data)
-                console.log(response.data)
+                // console.log(response.data)
             })
     }
-
 
     return (
         <div className="container">
@@ -38,6 +37,7 @@ const Angebotsvorlage = () => {
                     <VorlagenListe
                         key={index}
                         title={e.title}
+                        text={e.text}
                         id={e.id}
                         offerings={offerings}
                     />

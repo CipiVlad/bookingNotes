@@ -19,10 +19,7 @@ import Angebotsvorlage from './pages/subpages/vorlagen/Angebotsvorlage'
 import Rechnungsvorlage from './pages/subpages/vorlagen/Rechnungsvorlage'
 import AngebotsvorlagenEditor from './pages/subpages/vorlagen/AngebotsvorlagenEditor'
 
-
-
 function App() {
-
   return (
     <Router>
       <div className="App">
