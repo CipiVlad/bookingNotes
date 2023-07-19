@@ -7,15 +7,18 @@ import axios from 'axios'
 const Angebotsvorlage = () => {
     const [offerings, setOfferings] = useState([])
 
-    const fetchList = async () => {
-        console.log('data fetched');
-        const response = await axios.get('http://localhost:3001/offeringlist')
-        setOfferings(response.data)
-    }
-
     useEffect(() => {
         fetchList()
     }, [])
+
+    const fetchList = async () => {
+        await axios.get('http://localhost:3001/offeringlist')
+            .then((response) => {
+                setOfferings(response.data)
+                console.log(response.data)
+            })
+    }
+
 
     return (
         <div className="container">
@@ -30,17 +33,15 @@ const Angebotsvorlage = () => {
                 }
             </div>
 
-
             {
                 offerings.map((e, index) => (
                     <VorlagenListe
                         key={index}
                         title={e.title}
+                        id={e.id}
                         offerings={offerings}
                     />
-
                 ))
-
             }
         </div>
     )
