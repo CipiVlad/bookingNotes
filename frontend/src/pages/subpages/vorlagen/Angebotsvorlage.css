@@ -8,3 +8,17 @@
         ". .";
     margin: 4vh;
 }
+
+.headline_and_icon {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.text_left,
+.text_right {
+    border: 1px solid rgb(33, 111, 219);
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.icons_container {}

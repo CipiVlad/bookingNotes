@@ -35,7 +35,7 @@ function App() {
           <Route path='/vorlagen' element={<Vorlagen />} />
           <Route path='/vorlagen/mietvertragsvorlage' element={<Mietvertragsvorlage />} />
           <Route path='/vorlagen/angebotsvorlage' element={<Angebotsvorlage />} />
-          <Route path='/vorlagen/angebotsvorlageneditor' element={<AngebotsvorlagenEditor />} />
+          <Route path='/vorlagen/angebotsvorlageneditor/:id' element={<AngebotsvorlagenEditor />} />
           <Route path='/vorlagen/rechnungsvorlage' element={<Rechnungsvorlage />} />
           <Route path='/statistik' element={<Statistik />} />
           <Route path='/einstellungen' element={<Einstellungen />} />

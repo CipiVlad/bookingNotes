@@ -1,22 +1,47 @@
 import React from 'react'
-import AngebotsvorlagenListe from './AngebotsvorlagenListe'
+import VorlagenListe from '../../../components/vorlagen/VorlagenListe'
 import './Angebotsvorlage.css'
-import data from './AngebotsvorlagenListe.json'
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 const Angebotsvorlage = () => {
+    const [offerings, setOfferings] = useState([])
+
+    const fetchList = async () => {
+        console.log('data fetched');
+        const response = await axios.get('http://localhost:3001/offeringlist')
+        setOfferings(response.data)
+    }
+
+    useEffect(() => {
+        fetchList()
+    }, [])
+
     return (
         <div className="container">
-            <div>
+            <div className='text_left'>
                 <h2>Vorlagentext</h2>
                 {
-                    data.offeringlist.map((e, index) => (
+                    offerings.map((e, index) => (
                         <article key={index}>
                             <p>{e.text}</p>
                         </article>
                     ))
                 }
             </div>
-            <AngebotsvorlagenListe />
+
+
+            {
+                offerings.map((e, index) => (
+                    <VorlagenListe
+                        key={index}
+                        title={e.title}
+                        offerings={offerings}
+                    />
+
+                ))
+
+            }
         </div>
     )
 }

@@ -5,10 +5,33 @@ import IconButton from '@mui/material/IconButton';
 import SaveIcon from '@mui/icons-material/Save';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const AngebotsvorlagenEditor = () => {
     const navigate = useNavigate()
+
+    const { id } = useParams()
+    console.log(id);
+    //ermöglicht es den state aus der ÜbersichtsCard hierher mitzunehmen
+    const location = useLocation()
+    //wenn loaction.state null ist und User auf zurück klickt, dann navigate zu '/buchungen'
+    let data = location.state || [];
+    console.log('data= ', data);
+    console.log('id params: ', id);
+
+
+
+    useEffect(() => {
+        if (!location.state) {
+            navigate("/vorlagen/angebotsvorlage");
+        }
+    }, [location.state, navigate]);
+
+    let detail = data.filter((elt) => elt.id == id);
+
+
+
 
     function handleSave() {
         console.log('changes saved');
