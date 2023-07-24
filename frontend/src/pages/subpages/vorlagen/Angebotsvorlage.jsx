@@ -3,6 +3,8 @@ import VorlagenListe from '../../../components/vorlagen/VorlagenListe'
 import './Angebotsvorlage.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import NeueVorlage from '../../../components/vorlagen/NeueVorlage';
+
 
 const Angebotsvorlage = () => {
     const [offerings, setOfferings] = useState([])
@@ -21,6 +23,7 @@ const Angebotsvorlage = () => {
 
     return (
         <>
+            <NeueVorlage />
             {
                 offerings.map((e, index) => (
                     <div className="container" key={index}>

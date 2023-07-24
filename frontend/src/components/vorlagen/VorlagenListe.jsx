@@ -10,10 +10,6 @@ import { useState } from 'react';
 const VorlagenListe = (props) => {
     let [clipboardState, setClipboardState] = useState('')
     //event handler
-    function handleAdd() {
-        console.log('add');
-    }
-
     function handleCopy() {
         clipboardState = props.offerings.filter((e) => e.id == props.id)
         setClipboardState(clipboardState[0].text)
@@ -28,9 +24,6 @@ const VorlagenListe = (props) => {
         <div className='text_right'>
             <div className='headline_and_icon'>
                 <h2>Bearbeiten</h2>
-                <IconButton onClick={handleAdd}>
-                    <AddIcon />
-                </IconButton>
             </div>
             <div className='icons_container'>
                 <ul >
