@@ -27,7 +27,7 @@ const VorlagenListe = (props) => {
     return (
         <div className='text_right'>
             <div className='headline_and_icon'>
-                <h2>Liste</h2>
+                <h2>Bearbeiten</h2>
                 <IconButton onClick={handleAdd}>
                     <AddIcon />
                 </IconButton>

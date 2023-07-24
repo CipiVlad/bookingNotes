@@ -25,7 +25,7 @@ const Angebotsvorlage = () => {
                 offerings.map((e, index) => (
                     <div className="container" key={index}>
                         <div className='text_left'>
-                            <h2>Vorlagentext</h2>
+                            <h2>Vorschau Vorlagentext</h2>
                             <article>
                                 <p>{e.text}</p>
                             </article>
