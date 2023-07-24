@@ -5,15 +5,19 @@ import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { useState } from 'react';
 
 const VorlagenListe = (props) => {
+    let [clipboardState, setClipboardState] = useState('')
     //event handler
     function handleAdd() {
         console.log('add');
     }
 
     function handleCopy() {
-        console.log(props.offerings[0].text);
+        clipboardState = props.offerings.filter((e) => e.id == props.id)
+        setClipboardState(clipboardState[0].text)
+        console.log(clipboardState[0].text);
     }
 
     function handleDelete() {
@@ -39,7 +43,7 @@ const VorlagenListe = (props) => {
                     <IconButton onClick={handleDelete}>
                         <DeleteForeverIcon></DeleteForeverIcon>
                     </IconButton>
-                    <CopyToClipboard>
+                    <CopyToClipboard text={clipboardState} onCopy={() => handleCopy} >
                         <IconButton onClick={handleCopy}>
                             <ContentPasteIcon />
                         </IconButton>

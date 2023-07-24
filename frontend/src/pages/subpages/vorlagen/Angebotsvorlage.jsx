@@ -37,6 +37,7 @@ const Angebotsvorlage = () => {
                             text={e.text}
                             id={e.id}
                             offerings={offerings}
+                            state={offerings.id}
                         />
                     </div>
                 ))
