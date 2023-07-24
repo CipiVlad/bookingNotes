@@ -20,30 +20,28 @@ const Angebotsvorlage = () => {
     }
 
     return (
-        <div className="container">
-            <div className='text_left'>
-                <h2>Vorlagentext</h2>
-                {
-                    offerings.map((e, index) => (
-                        <article key={index}>
-                            <p>{e.text}</p>
-                        </article>
-                    ))
-                }
-            </div>
-
+        <>
             {
                 offerings.map((e, index) => (
-                    <VorlagenListe
-                        key={index}
-                        title={e.title}
-                        text={e.text}
-                        id={e.id}
-                        offerings={offerings}
-                    />
+                    <div className="container" key={index}>
+                        <div className='text_left'>
+                            <h2>Vorlagentext</h2>
+                            <article>
+                                <p>{e.text}</p>
+                            </article>
+                        </div>
+
+                        <VorlagenListe
+                            key={index}
+                            title={e.title}
+                            text={e.text}
+                            id={e.id}
+                            offerings={offerings}
+                        />
+                    </div>
                 ))
             }
-        </div>
+        </>
     )
 }
 

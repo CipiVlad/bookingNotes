@@ -4,6 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from 'react-router-dom';
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 const VorlagenListe = (props) => {
     //event handler
@@ -12,7 +13,7 @@ const VorlagenListe = (props) => {
     }
 
     function handleCopy() {
-        console.log('copied to clipboard');
+        console.log(props.offerings[0].text);
     }
 
     function handleDelete() {
@@ -38,9 +39,11 @@ const VorlagenListe = (props) => {
                     <IconButton onClick={handleDelete}>
                         <DeleteForeverIcon></DeleteForeverIcon>
                     </IconButton>
-                    <IconButton onClick={handleCopy}>
-                        <ContentPasteIcon />
-                    </IconButton>
+                    <CopyToClipboard>
+                        <IconButton onClick={handleCopy}>
+                            <ContentPasteIcon />
+                        </IconButton>
+                    </CopyToClipboard>
                 </ul>
             </div>
         </div>

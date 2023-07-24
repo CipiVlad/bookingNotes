@@ -36,6 +36,19 @@
       "persons": "2",
       "price": "57",
       "room": "1"
+    },
+    {
+      "id": 2,
+      "title": "Angebotsvorlage 2",
+      "text": "Dear ... ,thank you for your inquiry and for considering our house. We are pleased to make you the following offer:The room rate is per room and night and includes breakfast from our breakfast buffet, service and 19% VAT. We hope to welcome you soon again in our house and expect your answer until XX.XX. 200X. With kind regards,",
+      "startDate": "2023-07-21",
+      "endDate": "2023-07-30",
+      "name": "Schmidt",
+      "phoneNumber": "123 344",
+      "emailAddress": "schmidt@ls.com",
+      "persons": "2",
+      "price": "57",
+      "room": "1"
     }
   ]
 }
