@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 const VorlagenListe = (props) => {
     let [clipboardState, setClipboardState] = useState('')
+
     //event handler
     function handleCopy() {
         clipboardState = props.offerings.filter((e) => e.id == props.id)
@@ -21,27 +22,24 @@ const VorlagenListe = (props) => {
     }
 
     return (
-        <div className='text_right'>
+        <div className='text_right' >
             <div className='headline_and_icon'>
-                <h2>Bearbeiten</h2>
+                <h4>{props.title}</h4>
             </div>
-            <div className='icons_container'>
-                <ul >
-                    <li>{props.title}</li>
-                    <Link to={`/vorlagen/angebotsvorlageneditor/${props.id}`} state={props.offerings} >
-                        <IconButton>
-                            <EditIcon></EditIcon>
-                        </IconButton>
-                    </Link>
-                    <IconButton onClick={handleDelete}>
-                        <DeleteForeverIcon></DeleteForeverIcon>
+            <div className='icons_container' style={{ display: 'flex', justifyContent: 'center' }}>
+                <Link to={`/vorlagen/angebotsvorlageneditor/${props.id}`} state={props.offerings} >
+                    <IconButton>
+                        <EditIcon />
                     </IconButton>
-                    <CopyToClipboard text={clipboardState} onCopy={() => handleCopy} >
-                        <IconButton onClick={handleCopy}>
-                            <ContentPasteIcon />
-                        </IconButton>
-                    </CopyToClipboard>
-                </ul>
+                </Link>
+                <IconButton onClick={handleDelete}>
+                    <DeleteForeverIcon />
+                </IconButton>
+                <CopyToClipboard text={clipboardState} onCopy={() => handleCopy} >
+                    <IconButton onClick={handleCopy}>
+                        <ContentPasteIcon />
+                    </IconButton>
+                </CopyToClipboard>
             </div>
         </div>
     )

@@ -1,9 +1,9 @@
 import React from 'react'
-import VorlagenListe from '../../../components/vorlagen/VorlagenListe'
+import VorlagenListe from '../../../components/angebotsvorlagen/VorlagenListe'
 import './Angebotsvorlage.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import NeueVorlage from '../../../components/vorlagen/NeueVorlage';
+import NeueVorlage from '../../../components/angebotsvorlagen/NeueVorlage';
 
 
 const Angebotsvorlage = () => {
@@ -28,9 +28,9 @@ const Angebotsvorlage = () => {
                 offerings.map((e, index) => (
                     <div className="container" key={index}>
                         <div className='text_left'>
-                            <h2>Vorschau Vorlagentext</h2>
+                            <h2>{e.text.slice(0, 25)}...</h2>
                             <article>
-                                <p>{e.text}</p>
+                                <p>{e.text.slice(25)}</p>
                             </article>
                         </div>
 

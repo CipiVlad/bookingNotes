@@ -1,4 +1,4 @@
-import Editor from '../../../Editor'
+import AngebotsEditor from '../../../AngebotsEditor'
 import '../../../Editor.css'
 import './Angebotsvorlage.css'
 import IconButton from '@mui/material/IconButton';
@@ -47,8 +47,7 @@ const AngebotsvorlagenEditor = () => {
 
     return (
         <div>AngebotsvorlagenEditor
-
-            <Editor />
+            <AngebotsEditor detail={detail} />
             <IconButton onClick={handleSave}>
                 <SaveIcon />
             </IconButton>
