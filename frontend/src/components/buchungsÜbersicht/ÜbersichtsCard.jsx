@@ -1,15 +1,60 @@
+
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
+import Slide from '@mui/material/Slide';
+
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function ÜbersichtsCard(props) {
+    //Dialog Window Delete
+    const [open, setOpen] = useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     const handleDelete = () => {
         props.onDelete(props.id);
     };
 
+
+
+
     return (
         <>
+
+            <Dialog
+                open={open}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleClose}
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Please Confirm"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-slide-description">
+                        Do you really want to delete this note?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleDelete}>Yes</Button>
+                    <Button onClick={handleClose}>No</Button>
+                </DialogActions>
+            </Dialog>
             <tbody>
                 <tr >
                     <td>{props.id}</td>
@@ -30,7 +75,7 @@ export default function ÜbersichtsCard(props) {
                                 <EditIcon></EditIcon>
                             </IconButton>
                         </Link>
-                        <IconButton onClick={handleDelete}>
+                        <IconButton onClick={handleClickOpen}>
                             <DeleteForeverIcon></DeleteForeverIcon>
                         </IconButton>
                     </td>
