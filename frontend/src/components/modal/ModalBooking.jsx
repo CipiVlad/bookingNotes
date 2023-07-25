@@ -1,6 +1,7 @@
 import { Modal, Form, Button } from "react-bootstrap";
 
 const ModalBooking = ({ showModal, handleCloseModal, handleBooking, bookingData, setBookingData }) => {
+    console.log(bookingData.startDate);
     return (
         <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>

@@ -36,7 +36,9 @@ const Angebotsvorlage = () => {
 
     return (
         <>
-            <NeueVorlage />
+            <NeueVorlage
+                loadingData={loadingData}
+            />
             {
                 offerings.map((e, index) => (
                     <div className="container" key={index}>
@@ -49,9 +51,9 @@ const Angebotsvorlage = () => {
 
                         <VorlagenListe
                             key={index}
+                            id={e.id}
                             title={e.title}
                             text={e.text}
-                            id={e.id}
                             offerings={offerings}
                             state={offerings.id}
                             onDelete={handleDelete}

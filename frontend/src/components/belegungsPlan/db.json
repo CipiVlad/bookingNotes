@@ -27,28 +27,25 @@
     {
       "id": 1,
       "title": "Angebotsvorlage 1",
-      "text": "Sehr geehrte ... ,vielen Dank für Ihre Anfrage und für die Berücksichtigung unseres Hauses. Gerne unterbreiten wir Ihnen folgendes Angebot:Der Zimmerpreis versteht sich pro Zimmer und Nacht und beinhaltet Frühstück von unserem Frühstücksbuffet, Service und 19% Mehrwertsteuer. Wir hoffen sie bald wieder in unserem Haus begrüßen zu dürfen und erwarten Ihre Antwort bis zum XX.XX. 200X. Mit freundlichen Grüßen,",
-      "startDate": "2023-07-21",
-      "endDate": "2023-07-30",
-      "name": "Schmidt",
-      "phoneNumber": "123 344",
-      "emailAddress": "schmidt@ls.com",
-      "persons": "2",
-      "price": "57",
-      "room": "1"
+      "text": "Sehr geehrte ... ,vielen Dank für Ihre Anfrage und für die Berücksichtigung unseres Hauses. Gerne unterbreiten wir Ihnen folgendes Angebot:Der Zimmerpreis versteht sich pro Zimmer und Nacht und beinhaltet Frühstück von unserem Frühstücksbuffet, Service und 19% Mehrwertsteuer. Wir hoffen sie bald wieder in unserem Haus begrüßen zu dürfen und erwarten Ihre Antwort bis zum XX.XX. 200X. Mit freundlichen Grüßen,"
     },
     {
       "id": 2,
       "title": "Angebotsvorlage 2",
-      "text": "Dear ... ,thank you for your inquiry and for considering our house. We are pleased to make you the following offer:The room rate is per room and night and includes breakfast from our breakfast buffet, service and 19% VAT. We hope to welcome you soon again in our house and expect your answer until XX.XX. 200X. With kind regards,",
-      "startDate": "2023-07-21",
-      "endDate": "2023-07-30",
-      "name": "Schmidt",
-      "phoneNumber": "123 344",
-      "emailAddress": "schmidt@ls.com",
-      "persons": "2",
-      "price": "57",
-      "room": "1"
+      "text": "Dear ... ,thank you for your inquiry and for considering our house. We are pleased to make you the following offer:The room rate is per room and night and includes breakfast from our breakfast buffet, service and 19% VAT. We hope to welcome you soon again in our house and expect your answer until XX.XX. 200X. With kind regards,"
+    },
+    {
+      "title": "Gästehaus ohne EW",
+      "text": "Gerne bieten wir Ihnen unser Gästehaus ohne Einliegerwohnung an...",
+      "id": 3
+    }
+  ],
+  "invoicelist": [
+    {
+      "id": 1,
+      "number": "",
+      "date": "",
+      "amount": ""
     }
   ]
 }
