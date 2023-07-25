@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
-import { useNavigate } from 'react-router-dom';
+
 
 const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);
-    const navigate = useNavigate()
+
     // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
 
     useEffect(() => {

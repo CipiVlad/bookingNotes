@@ -46,15 +46,15 @@ export default function ÜbersichtsCard(props) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Please Confirm"}</DialogTitle>
+                <DialogTitle>{"Bitte um Bestätigung"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Do you really want to delete this booking?
+                        Möchtest du wirklich diese Buchung löschen?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleDelete}>Yes</Button>
-                    <Button onClick={handleClose}>No</Button>
+                    <Button onClick={handleDelete}>Ja</Button>
+                    <Button onClick={handleClose}>Nein</Button>
                 </DialogActions>
             </Dialog>
             <tbody>
