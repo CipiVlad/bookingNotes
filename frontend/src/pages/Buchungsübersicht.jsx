@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import ÜbersichtsCard from '../components/buchungsÜbersicht/ÜbersichtsCard'
-import ModalBooking from '../components/modal/ModalBooking';
 
 const Buchungsübersicht = () => {
     const [bookings, setBookings] = useState([]);

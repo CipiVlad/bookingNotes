@@ -6,6 +6,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useState } from 'react';
+import axios from 'axios';
 
 const VorlagenListe = (props) => {
     let [clipboardState, setClipboardState] = useState('')
@@ -17,8 +18,18 @@ const VorlagenListe = (props) => {
         console.log(clipboardState[0].text);
     }
 
-    function handleDelete() {
-        console.log('deleted');
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/offeringlist/${props.id}`)
+            const offeringList = props.offerings.filter(offer => offer.id == props.id)
+            console.log(offeringList);
+            // setBookings(bookingList)
+            // loadingData()
+            console.log('Daten gelöscht');
+            window.onrel
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

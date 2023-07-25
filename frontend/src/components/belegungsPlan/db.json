@@ -21,6 +21,17 @@
       "price": "27",
       "room": "1",
       "id": 2
+    },
+    {
+      "startDate": "2023-07-25",
+      "endDate": "2023-07-28",
+      "name": "Mona",
+      "phoneNumber": "123 999 344",
+      "emailAddress": "m@shubidoo.net",
+      "persons": "3",
+      "price": "79",
+      "room": "3",
+      "id": 3
     }
   ],
   "offeringlist": [

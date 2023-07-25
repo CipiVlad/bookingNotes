@@ -11,7 +11,7 @@ const Angebotsvorlage = () => {
 
     useEffect(() => {
         fetchList()
-    }, [])
+    }, [offerings])
 
     const fetchList = async () => {
         await axios.get('http://localhost:3001/offeringlist')

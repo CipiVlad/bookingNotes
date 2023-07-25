@@ -20,11 +20,13 @@ import { TRANSFORMERS } from "@lexical/markdown";
 import ListMaxIndentLevelPlugin from "./plugins/ListMaxIndentLevelPlugin";
 import CodeHighlightPlugin from "./plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "./plugins/AutoLinkPlugin";
+import { useState } from 'react';
 
 // import { EditorState } from 'lexical';
-// import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-// import { useEffect } from 'react';
-// import LexicalOnChangePlugin from '@lexical/react/LexicalOnChangePlugin'
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { useEffect } from 'react';
+import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
+import { $getRoot, $getSelection } from 'lexical';
 
 
 
@@ -53,6 +55,32 @@ const editorConfig = {
 
 export default function AngebotsEditor(props) {
     // console.log(props.detail[0].text);
+
+    // When the editor changes, you can get notified via the
+    // LexicalOnChangePlugin!
+    function onChange(editorState) {
+        editorState.read(() => {
+            // Read the contents of the EditorState here.
+            const root = $getRoot();
+            const selection = $getSelection();
+
+            console.log(root.__cachedText, selection._cachedNodes);
+        });
+    }
+
+
+    const [richTextContent, setRichTextContent] = useState("");
+
+    useEffect(() => {
+        if (props.detail && props.detail.length > 0) {
+            setRichTextContent(props.detail[0].text);
+        }
+    }, [props.detail]);
+
+    const handleContentChange = (newContent) => {
+        setRichTextContent(newContent);
+    };
+
     return (
         <LexicalComposer initialConfig={editorConfig}>
             <div className="editor-container">
@@ -60,10 +88,9 @@ export default function AngebotsEditor(props) {
                 <div className="editor-inner">
                     <RichTextPlugin
                         contentEditable={<ContentEditable className="editor-input" />}
-                        // contentEditable={props.detail[0].text}
-                        // placeholder={props.detail[0].text}
                         ErrorBoundary={LexicalErrorBoundary}
-                    ></RichTextPlugin>
+                    />
+                    <OnChangePlugin onChange={onChange} />
 
                     <HistoryPlugin />
                     {/* <TreeViewPlugin /> */}
