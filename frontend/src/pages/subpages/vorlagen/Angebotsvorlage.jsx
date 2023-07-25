@@ -10,15 +10,28 @@ const Angebotsvorlage = () => {
     const [offerings, setOfferings] = useState([])
 
     useEffect(() => {
-        fetchList()
-    }, [offerings])
+        loadingData()
+    }, [])
 
-    const fetchList = async () => {
+    const loadingData = async () => {
         await axios.get('http://localhost:3001/offeringlist')
             .then((response) => {
                 setOfferings(response.data)
-                // console.log(response.data)
+                console.log(response.data)
             })
+    }
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/offeringlist/${id}`)
+            // const offeringList = offerings.filter(offer => offer.id == id)
+            // console.log(offeringList);
+            setOfferings([])
+            loadingData()
+            console.log('Daten gelöscht');
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -41,6 +54,7 @@ const Angebotsvorlage = () => {
                             id={e.id}
                             offerings={offerings}
                             state={offerings.id}
+                            onDelete={handleDelete}
                         />
                     </div>
                 ))
