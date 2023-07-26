@@ -150,7 +150,6 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
     return (
         <div className="weekly-calendar">
             <div className="frame">
-
                 <div className="calendar-header">
                     <Typography variant="h6" className="week-number">
                         <IconButton onClick={handlePreviousWeek} className="arrow-icon">

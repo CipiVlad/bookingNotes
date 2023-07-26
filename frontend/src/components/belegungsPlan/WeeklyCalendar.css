@@ -49,22 +49,7 @@
     background-color: #7fff7f;
 }
 
-.parent-div {
-    background-color: #fff;
-    border: 1px solid #1976d2;
-    padding: 35px;
-    border-radius: 16px;
-    margin-top: 2vh;
-}
-
-.child-div {
-    width: 30px;
-    height: 30px;
-    background-color: lightgray;
-    margin: 5px;
-    border-radius: 50%;
-}
-
-.child-div.booked {
-    background-color: green;
+.booked-cell {
+    text-align: center;
+    background-color: rgb(82, 194, 82);
 }
