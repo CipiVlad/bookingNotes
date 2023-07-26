@@ -19,8 +19,30 @@
       "emailAddress": "tulpe83@lol.com",
       "persons": "1",
       "price": "27",
-      "room": "1",
+      "room": "2",
       "id": 2
+    },
+    {
+      "startDate": "2023-07-24",
+      "endDate": "2023-07-28",
+      "name": "Aaron",
+      "phoneNumber": "123",
+      "emailAddress": "a@ail.com",
+      "persons": "2",
+      "price": "54",
+      "room": "3",
+      "id": 3
+    },
+    {
+      "startDate": "2023-07-24",
+      "endDate": "2023-07-29",
+      "name": "Muri",
+      "phoneNumber": "192",
+      "emailAddress": "mu@ri.com",
+      "persons": "1",
+      "price": "57",
+      "room": "2",
+      "id": 4
     }
   ],
   "offeringList": [],

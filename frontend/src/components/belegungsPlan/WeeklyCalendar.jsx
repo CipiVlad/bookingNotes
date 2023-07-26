@@ -169,7 +169,7 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
             <RoomLogic
                 currentWeek={currentWeek}
                 bookedDays={bookedDays}
-                bookingData={bookingData}
+                bookingData={bookings} // Pass the bookings data to RoomLogic
                 selectedDay={selectedDay}
                 handleOpenModal={handleOpenModal}
             />

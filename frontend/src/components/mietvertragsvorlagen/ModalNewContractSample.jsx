@@ -2,7 +2,6 @@ import { TextField } from '@mui/material';
 import React from 'react'
 import { Modal, Form, Button } from "react-bootstrap";
 
-
 const ModalNewContractSample = ({ handleAddNewContract, contractSampleData, setContractSampleData, showModal, handleCloseModal }) => {
 
     return (
