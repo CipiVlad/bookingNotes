@@ -149,21 +149,24 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
 
     return (
         <div className="weekly-calendar">
-            <div className="calendar-header">
-                <Typography variant="h6" className="week-number">
-                    <IconButton onClick={handlePreviousWeek} className="arrow-icon">
-                        <ChevronLeftIcon />
-                    </IconButton>
-                    {`${year} KW ${currentWeek}`}
-                    <IconButton onClick={handleNextWeek} className="arrow-icon">
-                        <ChevronRightIcon />
-                    </IconButton>
-                </Typography>
-            </div>
-            <div>
-                <Button variant="outlined" onClick={handleCurrentWeek} className="booking-button">
-                    Zurück zur aktuellen Woche
-                </Button>
+            <div className="frame">
+
+                <div className="calendar-header">
+                    <Typography variant="h6" className="week-number">
+                        <IconButton onClick={handlePreviousWeek} className="arrow-icon">
+                            <ChevronLeftIcon />
+                        </IconButton>
+                        {`${year} KW ${currentWeek}`}
+                        <IconButton onClick={handleNextWeek} className="arrow-icon">
+                            <ChevronRightIcon />
+                        </IconButton>
+                    </Typography>
+                </div>
+                <div>
+                    <Button variant="outlined" onClick={handleCurrentWeek} className="booking-button">
+                        Zurück zur aktuellen Woche
+                    </Button>
+                </div>
             </div>
 
             <RoomLogic

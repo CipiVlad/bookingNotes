@@ -4,6 +4,14 @@
     background-color: #f7f7f7;
 }
 
+.weekly-calendar .frame {
+    margin: 2vh auto;
+    border: 1px solid #1976d2;
+    width: fit-content;
+    padding: 2vh;
+    border-radius: 10px;
+}
+
 .weekly-calendar .calendar-days {
     display: flex;
     justify-content: space-between;
