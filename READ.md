@@ -65,33 +65,43 @@ MERN-stack with redux and redux-toolkit
             +   components
                 + api
                 + auth
+                + angebotsvorlagen
+                + belegungsPlan
+                + buchungsÜbersicht
+                + mietvertragsvorlagen
                 + main
                     -- NavBar.jsx
                     -- SideBar.jsx
                     -- UsersView.jsx
-                + dashboard
-                    -- DateView.jsx
-                    -- RoomView.jsx
-                + angebote
-                + mietverträge
+                + main
                 + rechnungen
                 + vorlagen
                 + statistik
             +   pages
-                -- WelcomePage.js
-                -- Registration.js
-                -- Login.js
-                -- Dashboard.js
-                -- Einstellungen.js
-                -- Buchungsübersicht.js
-                -- Email.js
-                -- Netzwerk.js
-                -- Kundenstamm.js
-                -- Angebote.js
-                -- Mietverträge.js
-                -- Rechnungen.js
-                -- Vorlagen.js
-                -- Statistik.js
+                + subpages
+                    + vorlagen
+                        -- Angebotsvorlage.jsx
+                        -- AngebotsvorlagenEditor.jsx
+                        -- Mietvertragsvorlage.jsx
+                        -- MietvertragsvorlagenEditor.jsx
+                        -- Rechnungsvorlage.jsx
+                        -- RechnungsvorlagenEditor.jsx
+                -- Angebote.jsx
+                -- BelegungsPlan.jsx
+                -- Buchungs_Bearbeitungs.jsx
+                -- Buchungsübersicht.jsx
+                -- Einstellungen.jsx
+                -- Email.jsx
+                -- Kundenstamm.jsx
+                -- Login.jsx
+                -- Dashboard.jsx
+                -- Mietverträge.jsx
+                -- Netzwerk.jsx
+                -- Rechnungen.jsx
+                -- Registration.jsx
+                -- Statistik.jsx
+                -- Vorlagen.jsx
+                -- WelcomePage.jsx
 
     => NPM - Dependencies
         -- react-router-dom
@@ -110,6 +120,41 @@ MERN-stack with redux and redux-toolkit
         lexical ist ein Texteditor von Meta, kompatibel mit React und erleichtert die Textverarbeitung
         https://lexical.dev/docs/getting-started/react
         https://www.youtube.com/watch?v=qIqxvk2qcmo
+
+    => es braucht noch eine Option während der Buchungseingabe, um das gesamte Haus oder mehrere    Zimmer durch eine Partei/Person zu buchen. Möglicher Lösungsansatz: 
+
+       <select>
+        <option value="room1">Zimmer 1</option>
+        <option value="room2">Zimmer 2</option>
+        <option value="room3">Zimmer 3</option>
+        <option value="guesthouse">Gesamtes Gästehaus</option>
+      </select>
+
+      Datenstruktur: 
+       "bookings": 
+            [{
+                "id": 1
+                "startDate": "2023-07-17",
+                "endDate": "2023-07-19",
+                "name": "Sally Dumars",
+                "phoneNumber": "(01) 838 555 91",
+                "emailAddress": "s.dumars@booked.com",
+                "persons": "1",
+                "price": "27",
+                "room": 
+                [
+                    {
+                        one:true
+                    },
+                    {
+                        two:false
+                    },
+                    {
+                        all:false
+                    }
+                ]
+            }]
+      
     
     => nach jedem abschlossenen Jahr
         -- save all bookings to pdf file
