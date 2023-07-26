@@ -5,7 +5,7 @@ import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -43,6 +43,10 @@ const VorlagenListe = (props) => {
         setClipboardState(clipboardState[0].text)
         console.log(clipboardState[0].text);
     }
+    //ohne useEffect wird copy-to-clipboard nur beim zweiten klicken aktiv
+    useEffect(() => {
+        handleCopy()
+    }, [])
 
     function handleDelete() {
         props.onDelete(props.id);
