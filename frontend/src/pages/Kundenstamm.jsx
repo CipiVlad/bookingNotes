@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 const Kundenstamm = () => {
     const [clients, setClients] = useState([]);
-
+    const [search, setSearch] = useState([])
 
     // API-Aufruf mit Axios, um die Buchungsdaten abzurufen
     useEffect(() => {
@@ -18,23 +18,43 @@ const Kundenstamm = () => {
             .then(response => {
                 // Daten speichern
                 setClients(response.data);
-                console.log(response.data);
+                setSearch(response.data)
+                // console.log(response.data);
             })
             .catch(error => {
                 console.error('Fehler beim Abrufen der Buchungsdaten:', error);
             });
     }
 
+
+    //searchBar
+    const handleSubmit = (e) => e.preventDefault()
+    const handleSearchChange = (e) => {
+        if (!e.target.value) return setSearch(clients)
+        const resultArray =
+            clients.filter(
+                client =>
+                    client.name.includes(e.target.value)
+                    || client.name.toLowerCase().includes(e.target.value)
+            )
+
+        setSearch(resultArray)
+        console.log(resultArray)
+    }
+
+
+
     return (
         <>
-            <Stack spacing={2} sx={{ width: 300, margin: ' 0 auto' }}>
+            <Stack spacing={2} sx={{ width: 300, margin: '4vh auto' }}>
                 <TextField
                     label="Suche nach Kunde"
+                    onChange={handleSearchChange}
                 />
             </Stack>
 
 
-            <Table striped bordered hover>
+            <Table striped bordered hover onSubmit={handleSubmit}>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -43,7 +63,7 @@ const Kundenstamm = () => {
                         <th>Telefonnummer</th>
                     </tr>
                 </thead>
-                {clients.map((client, index) => (
+                {search.map((client, index) => (
                     <tbody key={index}>
                         <tr >
                             <td>{client.id}</td>
@@ -56,7 +76,8 @@ const Kundenstamm = () => {
                             </td>
                         </tr>
                     </tbody >
-                ))}
+                ))
+                }
             </Table>
         </>
     );
