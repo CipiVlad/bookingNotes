@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
-import ModalNewOfferSample from './ModalNewOfferSample';
+import ModalNewContractSample from './ModalNewContractSample';
 
 
 const NeueVorlage = ({ loadingData }) => {
-    const [offerSampleData, setOfferSampleData] = useState({
+    const [contractSampleData, setContractSampleData] = useState({
         title: "",
         text: ""
     })
@@ -21,27 +21,27 @@ const NeueVorlage = ({ loadingData }) => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-    const handleAddNewOffer = async (event) => {
+    const handleAddNewContract = async (event) => {
         event.preventDefault()
 
         //Extrahiere die Werte aus den Formularfeldern
-        const { title, text } = offerSampleData
+        const { title, text } = contractSampleData
 
         //Erstelle ein Objekt für die Angebotsvorlagedaten
-        const newOffer = {
+        const newContract = {
             title,
             text
         }
 
         try {
             //Sende die Daten an den Server
-            const response = await axios.post('http://localhost:3001/offeringSampleList', newOffer)
+            const response = await axios.post('http://localhost:3001/contractSampleList', newContract)
 
             //Update die Daten in der State-Variable
-            setOfferSampleData(response.data)
+            setContractSampleData(response.data)
 
             //Setze die Formulardaten zurück
-            setOfferSampleData({
+            setContractSampleData({
                 title: "",
                 text: ""
             })
@@ -61,13 +61,13 @@ const NeueVorlage = ({ loadingData }) => {
                 <AddIcon />
             </IconButton>
 
-            <ModalNewOfferSample
+            <ModalNewContractSample
                 showModal={showModal}
                 handleCloseModal={handleCloseModal}
                 handleOpenModal={handleOpenModal}
-                handleAddNewOffer={handleAddNewOffer}
-                offerSampleData={offerSampleData}
-                setOfferSampleData={setOfferSampleData}
+                handleAddNewContract={handleAddNewContract}
+                contractSampleData={contractSampleData}
+                setContractSampleData={setContractSampleData}
             />
         </div>
     )

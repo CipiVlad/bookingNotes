@@ -1,6 +1,6 @@
 import AngebotsEditor from '../../../AngebotsEditor'
 import '../../../Editor.css'
-import './Angebotsvorlage.css'
+import './Vorlagen.css'
 import IconButton from '@mui/material/IconButton';
 import SaveIcon from '@mui/icons-material/Save';
 import CloseIcon from '@mui/icons-material/Close';

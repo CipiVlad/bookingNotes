@@ -23,7 +23,8 @@
       "id": 2
     }
   ],
-  "offeringlist": [
+  "offeringList": [],
+  "offeringSampleList": [
     {
       "id": 1,
       "title": "Angebotsvorlage 1",
@@ -40,12 +41,26 @@
       "id": 3
     }
   ],
-  "invoicelist": [
+  "invoiceList": [
     {
       "id": 1,
       "number": "",
       "date": "",
       "amount": ""
+    }
+  ],
+  "invoiceSampleList": [],
+  "contractList": [],
+  "contractSampleList": [
+    {
+      "id": 1,
+      "title": "Mietvertragsvorlage 1",
+      "text": "Die vom Gast veranlasste und vom Beherbergungsbetrieb angenommene Reservierung begründet zwischen beiden ein Vertragsverhältnis, den sogenannten Gastaufnahmevertrag (Beherbergungsvertrag), der wie alle Verträge von beiden Vertragspartnern einzuhalten ist. Nach Gesetz und ständiger Rechtsprechung beinhaltet er unter anderem folgende Regelungen:"
+    },
+    {
+      "id": 2,
+      "title": "Mietvertragsvorlage 2",
+      "text": "The reservation initiated by the guest and accepted by the accommodation provider establishes a contractual relationship between the two parties, the so-called guest accommodation contract (accommodation contract), which, like all contracts, must be observed by both parties. According to the law and established case law, it contains the following regulations, among others:"
     }
   ]
 }

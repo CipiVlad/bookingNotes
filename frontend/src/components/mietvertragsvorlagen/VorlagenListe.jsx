@@ -39,7 +39,7 @@ const VorlagenListe = (props) => {
 
     //event handler
     function handleCopy() {
-        clipboardState = props.offerings.filter((e) => e.id == props.id)
+        clipboardState = props.contractData.filter((e) => e.id == props.id)
         setClipboardState(clipboardState[0].text)
         console.log(clipboardState[0].text);
     }
@@ -73,7 +73,7 @@ const VorlagenListe = (props) => {
                     <h4>{props.title}</h4>
                 </div>
                 <div className='icons_container' style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Link to={`/vorlagen/angebotsvorlageneditor/${props.id}`} state={props.offerings} >
+                    <Link to={`/vorlagen/mietvertragsvorlageneditor/${props.id}`} state={props.contractData} >
                         <IconButton>
                             <EditIcon />
                         </IconButton>

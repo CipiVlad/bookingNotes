@@ -1,6 +1,6 @@
 import React from 'react'
 import VorlagenListe from '../../../components/angebotsvorlagen/VorlagenListe'
-import './Angebotsvorlage.css'
+import './Vorlagen.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import NeueVorlage from '../../../components/angebotsvorlagen/NeueVorlage';
@@ -14,7 +14,7 @@ const Angebotsvorlage = () => {
     }, [])
 
     const loadingData = async () => {
-        await axios.get('http://localhost:3001/offeringlist')
+        await axios.get('http://localhost:3001/offeringSampleList')
             .then((response) => {
                 setOfferings(response.data)
                 console.log(response.data)
@@ -23,9 +23,9 @@ const Angebotsvorlage = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/offeringlist/${id}`)
-            // const offeringList = offerings.filter(offer => offer.id == id)
-            // console.log(offeringList);
+            await axios.delete(`http://localhost:3001/offeringSampleList/${id}`)
+            // const offeringSampleList = offerings.filter(offer => offer.id == id)
+            // console.log(offeringSampleList);
             setOfferings([])
             loadingData()
             console.log('Daten gelöscht');
