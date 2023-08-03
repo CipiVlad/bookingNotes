@@ -36,6 +36,8 @@ const Kundenstamm = () => {
                 client =>
                     client.name.includes(e.target.value)
                     || client.name.toLowerCase().includes(e.target.value)
+                    || client.emailAddress.includes(e.target.value)
+                    || client.emailAddress.toLowerCase().includes(e.target.value)
             )
 
         setSearch(resultArray)

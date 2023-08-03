@@ -154,8 +154,93 @@ MERN-stack with redux and redux-toolkit
                     }
                 ]
             }]
+
+*** 
+    ==> Lösungsansatz:
+https://codesandbox.io/s/bookingnotes-checkbox-for-modal-vprsmg?file=/src/App.js
+
+import { useState } from "react";
+
+export default function App() {
+  const [room1, setRoom1] = useState(false);
+  const [room2, setRoom2] = useState(false);
+  const [allRooms, setAllRooms] = useState(false);
+  const [bookings, setBookings] = useState([]);
+  const [bookingData, setBookingData] = useState({
+    id: "",
+    name: "",
+    room: [
+      {
+        number1: "",
+        number2: "",
+        allRooms: ""
+      }
+    ]
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    bookings.push({
+      id: Math.floor(Math.random() * 999),
+      room: [
+        {
+          number1: room1,
+          number2: room2,
+          allRooms: allRooms
+        }
+      ],
+      name: bookingData.name
+    });
+    console.log(bookings);
+  }
+
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+        <h2>Room Number</h2>
+        <label>1</label>
+        <input
+          type="checkbox"
+          name="1"
+          checked={room1 || allRooms}
+          onChange={(e) => setRoom1(e.target.checked)}
+        />
+        <label>2</label>
+        <input
+          type="checkbox"
+          name="2"
+          checked={room2 || allRooms}
+          onChange={(e) => setRoom2(e.target.checked)}
+        />
+        <label>all</label>
+        <input
+          type="checkbox"
+          name="all"
+          checked={allRooms}
+          onChange={(e) => {
+            setAllRooms(e.target.checked);
+            setRoom1(e.target.checked);
+            setRoom2(e.target.checked);
+          }}
+        />
+        <input
+          type="text"
+          value={bookingData.name}
+          onChange={(e) =>
+            setBookingData({ ...bookingData, name: e.target.value })
+          }
+          required
+        />
+        <input type="submit" value="submit" />
+      </form>
+    </div>
+  );
+}
+
+
+
       
-    
+***    
     => nach jedem abschlossenen Jahr
         -- save all bookings to pdf file
         -- save to unique local folder (i.e "Bookings 2023")
