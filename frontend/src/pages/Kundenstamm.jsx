@@ -50,7 +50,7 @@ const Kundenstamm = () => {
         <>
             <Stack spacing={2} sx={{ width: 300, margin: '4vh auto' }}>
                 <TextField
-                    label="Suche nach Kunde"
+                    label="Suche nach Gast"
                     onChange={handleSearchChange}
                 />
             </Stack>
