@@ -305,15 +305,6 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
                         <Form.Group controlId="room">
                             <Form.Label>Zimmer</Form.Label>
                             <br />
-                            {/* <Form.Control
-                            type="number"
-                            name="room"
-                            required
-                            value={bookingData.room}
-                            onChange={(e) =>
-                                setBookingData({ ...bookingData, room: e.target.value })
-                            }
-                        /> */}
                             <label htmlFor="">1</label>
                             <input type="checkbox" checked={room1 || allRooms} onChange={(e) => setRoom1(e.target.checked)} />
                             <label htmlFor="">2</label>
