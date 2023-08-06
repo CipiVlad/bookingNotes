@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 
 const WeekDays = ({ bookings, setBookings }) => {
-    console.log(bookings);
+    // console.log(bookings);
 
     const [selectedDay, setSelectedDay] = useState(null);
     return (

@@ -69,7 +69,8 @@ export default function ÜbersichtsCard(props) {
                         <a href="tel:">{props.phoneNumber}</a>
                     </td>
                     <td>{props.persons}</td>
-                    <td>{props.room}</td>
+                    {/* alternative Lösung suchen für die Anzeige der gebuchten Zimmer */}
+                    <td>{props.room.map(e => e.number1)}</td>
                     <td>{props.price}</td>
                     <td>
                         <Link to={`/edit/${props.id}`} state={props.bookings}>

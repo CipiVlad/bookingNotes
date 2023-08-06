@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 
 const ModalBooking = ({ showModal, handleCloseModal, handleBooking, bookingData, setBookingData }) => {
-    console.log(bookingData.startDate);
+    console.log(bookingData.room);
+    const [room1, setRoom1] = useState(false)
+    const [room2, setRoom2] = useState(false)
+    const [room3, setRoom3] = useState(false)
+    const [room4, setRoom4] = useState(false)
+    const [room5, setRoom5] = useState(false)
+    const [room6, setRoom6] = useState(false)
+    const [room7, setRoom7] = useState(false)
+    const [allRooms, setAllRooms] = useState(false)
+
+
+
     return (
         <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
@@ -101,7 +113,8 @@ const ModalBooking = ({ showModal, handleCloseModal, handleBooking, bookingData,
                     </Form.Group>
                     <Form.Group controlId="room">
                         <Form.Label>Zimmer</Form.Label>
-                        <Form.Control
+                        <br />
+                        {/* <Form.Control
                             type="number"
                             name="room"
                             required
@@ -109,7 +122,23 @@ const ModalBooking = ({ showModal, handleCloseModal, handleBooking, bookingData,
                             onChange={(e) =>
                                 setBookingData({ ...bookingData, room: e.target.value })
                             }
-                        />
+                        /> */}
+                        <label htmlFor="">1</label>
+                        <input type="checkbox" checked={room1} onChange={(e) => setRoom1(e.target.checked)} />
+                        <label htmlFor="">2</label>
+                        <input type="checkbox" checked={room2} onChange={(e) => setRoom2(e.target.checked)} />
+                        <label htmlFor="">3</label>
+                        <input type="checkbox" checked={room3} onChange={(e) => setRoom3(e.target.checked)} />
+                        <label htmlFor="">4</label>
+                        <input type="checkbox" checked={room4} onChange={(e) => setRoom4(e.target.checked)} />
+                        <label htmlFor="">5</label>
+                        <input type="checkbox" checked={room5} onChange={(e) => setRoom5(e.target.checked)} />
+                        <label htmlFor="">6</label>
+                        <input type="checkbox" checked={room6} onChange={(e) => setRoom6(e.target.checked)} />
+                        <label htmlFor="">7</label>
+                        <input type="checkbox" checked={room7} onChange={(e) => setRoom7(e.target.checked)} />
+                        <label htmlFor="">all</label>
+                        <input type="checkbox" checked={allRooms} onChange={(e) => setAllRooms(e.target.checked)} />
                     </Form.Group>
 
                     <Button type="submit" variant="primary">

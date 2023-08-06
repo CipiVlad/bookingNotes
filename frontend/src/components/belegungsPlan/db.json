@@ -1,92 +1,44 @@
 {
   "bookings": [
     {
-      "startDate": "2023-07-17",
-      "endDate": "2023-07-19",
-      "name": "Sally Dumars",
-      "phoneNumber": "(01) 838 555 91",
-      "emailAddress": "s.dumars@booked.com",
-      "persons": "1",
-      "price": "27",
-      "room": "1",
+      "startDate": "2023-08-05",
+      "endDate": "2023-08-07",
+      "name": "all",
+      "phoneNumber": "123",
+      "emailAddress": "all@ex.com",
+      "persons": "12",
+      "price": "240",
+      "room": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
       "id": 1
     },
     {
-      "startDate": "2023-07-20",
-      "endDate": "2023-07-23",
-      "name": "Johnny die Tulpe",
-      "phoneNumber": "07283 39102",
-      "emailAddress": "tulpe83@lol.com",
-      "persons": "1",
-      "price": "27",
-      "room": "2",
-      "id": 2
-    },
-    {
-      "startDate": "2023-07-24",
-      "endDate": "2023-07-28",
-      "name": "Aaron",
-      "phoneNumber": "123",
-      "emailAddress": "a@ail.com",
-      "persons": "2",
-      "price": "54",
-      "room": "3",
-      "id": 3
-    },
-    {
-      "startDate": "2023-07-24",
-      "endDate": "2023-07-29",
-      "name": "Muri",
-      "phoneNumber": "192",
-      "emailAddress": "mu@ri.com",
-      "persons": "1",
-      "price": "57",
-      "room": "1",
-      "id": 4
-    },
-    {
-      "startDate": "2023-08-02",
+      "startDate": "2023-07-31",
       "endDate": "2023-08-04",
-      "name": "joe",
+      "name": "john doe",
       "phoneNumber": "123",
-      "emailAddress": "123a@dk.ca",
-      "persons": "1",
-      "price": "29",
-      "room": "4",
-      "id": 5
-    },
-    {
-      "startDate": "2023-08-06",
-      "endDate": "2023-08-10",
-      "name": "Andrea Muster",
-      "phoneNumber": "123 456 999",
-      "emailAddress": "a.muster@example.com",
+      "emailAddress": "jdoe@ex.com",
       "persons": "1",
       "price": "27",
-      "room": "1",
-      "id": 6
-    },
-    {
-      "startDate": "2023-08-09",
-      "endDate": "2023-08-11",
-      "name": "Nico Belic",
-      "phoneNumber": "555-200-80 11",
-      "emailAddress": "nico73@vicecity.com",
-      "persons": "1",
-      "price": "35",
-      "room": "2",
-      "id": 7
-    },
-    {
-      "startDate": "2023-08-08",
-      "endDate": "2023-08-12",
-      "name": "Sylvia Schuster",
-      "phoneNumber": "999-233-56",
-      "emailAddress": "schuh@example.com",
-      "persons": "3",
-      "price": "79",
-      "room": "4",
-      "id": 8
+      "room": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "id": 2
     }
   ],
   "offeringList": [],

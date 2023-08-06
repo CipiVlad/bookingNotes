@@ -21,13 +21,20 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
 
     // Fasse Buchungen anhand von gleicher Zimmernummer zusammen
+    /**
+     * In diesem  Code durchlaufen wir nun das bookingData-Array und überprüfen jedes Zimmer in der room-Liste der Buchung. Wenn das Zimmer als true markiert ist, wird es zur entsprechenden Zimmernummer in bookingsByRoom hinzugefügt, und die Zellen für die Buchungen in diesem Zimmer werden entsprechend eingefärbt. Dadurch werden jetzt alle ausgewählten Zimmer im gleichen Zeitraum richtig angezeigt.
+     */
     const bookingsByRoom = {};
     for (const booking of bookingData) {
-        const roomNumber = booking.room;
-        if (!bookingsByRoom[roomNumber]) {
-            bookingsByRoom[roomNumber] = [];
+        for (let i = 0; i < booking.room.length; i++) {
+            if (booking.room[i]) {
+                const roomNumber = i + 1;
+                if (!bookingsByRoom[roomNumber]) {
+                    bookingsByRoom[roomNumber] = [];
+                }
+                bookingsByRoom[roomNumber].push(booking);
+            }
         }
-        bookingsByRoom[roomNumber].push(booking);
     }
 
     const weekDaysList = weekdays.map((day, index) => {
@@ -42,8 +49,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                 className={`calendar-day ${selectedDay === dayOfWeek ? "selected" : ""}`}
                 onClick={handleOpenModal}
             >
-
-                <TableContainer component={Paper} >
+                <TableContainer component={Paper}>
                     <Table aria-label='simple table'>
                         <TableHead>
                             <TableRow style={{ height: '155px', background: 'lightsteelblue', borderBottom: '2px solid darkgray' }}>
@@ -55,21 +61,24 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                                         {date.format("D MMM")}
                                     </Typography>
                                 </TableCell>
-                                {/* Add additional table header cells if needed */}
                             </TableRow>
                         </TableHead>
-                        <TableBody >
+                        <TableBody>
                             {Array.from({ length: 7 }).map((_, roomIndex) => (
                                 <TableRow key={roomIndex} style={{ height: '155px' }}>
                                     <TableCell
-                                        //Erklärung sieh ganz unten:
+                                        // Erklärung sieh ganz unten:
                                         className={bookingsByRoom[roomIndex + 1] && bookingsByRoom[roomIndex + 1].some(booking => date.isBetween(booking.startDate, booking.endDate, "day", '[)')) ? "booked-cell" : ""}
                                         style={{ textAlign: 'center' }}
                                     >
                                         {bookingsByRoom[roomIndex + 1] &&
                                             bookingsByRoom[roomIndex + 1].map(booking => (
-                                                //'[)' bedeutet, dass startDate inkludiert wird
-                                                date.isBetween(booking.startDate, booking.endDate, "day", '[)') ? booking.name : null
+                                                // '[)' bedeutet, dass startDate inkludiert wird
+                                                date.isBetween(booking.startDate, booking.endDate, "day", '[)') ? (
+                                                    <div key={booking.id}>
+                                                        {booking.name}
+                                                    </div>
+                                                ) : null
                                             ))}
                                     </TableCell>
                                 </TableRow>
@@ -77,7 +86,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                         </TableBody>
                     </Table>
                 </TableContainer>
-            </Grid >
+            </Grid>
         );
     });
 
@@ -91,6 +100,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
 }
 
 export default RoomLogic;
+
 
 /*
 Diese Zeile Code dient dazu, die CSS-Klasse für die Zellen festzulegen, die gebuchte Zimmer repräsentieren.
