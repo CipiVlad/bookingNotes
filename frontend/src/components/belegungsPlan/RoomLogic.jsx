@@ -68,7 +68,21 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                                 <TableRow key={roomIndex} style={{ height: '155px' }}>
                                     <TableCell
                                         // Erklärung sieh ganz unten:
-                                        className={bookingsByRoom[roomIndex + 1] && bookingsByRoom[roomIndex + 1].some(booking => date.isBetween(booking.startDate, booking.endDate, "day", '[)')) ? "booked-cell" : ""}
+                                        className=
+                                        {
+                                            bookingsByRoom[roomIndex + 1]
+                                                &&
+                                                bookingsByRoom[roomIndex + 1]
+                                                    .some
+                                                    (
+                                                        booking => date.isBetween(
+                                                            booking.startDate, booking.endDate, "day", '[)')
+                                                    )
+                                                ?
+                                                "booked-cell"
+                                                :
+                                                ""
+                                        }
                                         style={{ textAlign: 'center' }}
                                     >
                                         {bookingsByRoom[roomIndex + 1] &&

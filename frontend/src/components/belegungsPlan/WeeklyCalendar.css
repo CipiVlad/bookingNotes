@@ -53,3 +53,8 @@
     text-align: center;
     background-color: rgb(82, 194, 82);
 }
+
+
+input[type='checkbox'] {
+    margin: 1vw;
+}

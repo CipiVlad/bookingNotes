@@ -14,7 +14,6 @@ import { eachDayOfInterval, format } from 'date-fns';
 
 import "./WeeklyCalendar.css";
 import RoomLogic from "./RoomLogic";
-import ModalBooking from '../modal/ModalBooking'
 import { Modal, Form } from "react-bootstrap";
 
 const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
@@ -45,6 +44,8 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
     //Array von Datumswerten, die bereits gebucht sind
     //verwendet um die Kalenderdaten zu aktualisieren, gebuchte Tage farblich zu markieren
     const [bookedDays, setBookedDays] = useState([]);
+
+
     const [room1, setRoom1] = useState(false)
     const [room2, setRoom2] = useState(false)
     const [room3, setRoom3] = useState(false)
@@ -62,7 +63,7 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
     };
 
     const handleNextWeek = () => {
-        setCurrentWeek((prevWeek) => prevWeek + 1);
+        setCurrentWeek((nextWeek) => nextWeek + 1);
     };
 
     const handleCurrentWeek = () => {
@@ -336,7 +337,7 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
                             } />
                         </Form.Group>
 
-                        <Button type="submit" variant="primary">
+                        <Button type="submit" variant="success">
                             Buchen
                         </Button>
                     </Form>
