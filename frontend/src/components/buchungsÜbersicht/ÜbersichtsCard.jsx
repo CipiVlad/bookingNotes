@@ -10,7 +10,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Slide from '@mui/material/Slide';
-
+import '../../css/ÜbersichtsCard.css'
 //mui confirmation dialog for delete
 
 const Transition = React.forwardRef(function Transition(props, ref) {
