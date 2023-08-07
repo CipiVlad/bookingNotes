@@ -1,6 +1,7 @@
 import { TextField } from '@mui/material';
 import React from 'react'
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
+import { Button } from "@mui/material"
 
 const ModalNewContractSample = ({ handleAddNewContract, contractSampleData, setContractSampleData, showModal, handleCloseModal }) => {
 
@@ -36,7 +37,7 @@ const ModalNewContractSample = ({ handleAddNewContract, contractSampleData, setC
                         />
                     </Form.Group>
 
-                    <Button type="submit" variant="primary">
+                    <Button type="submit" variant="contained" color="success">
                         Speichern
                     </Button>
                 </Form>

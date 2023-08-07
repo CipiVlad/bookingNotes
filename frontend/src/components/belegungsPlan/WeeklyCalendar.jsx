@@ -6,6 +6,7 @@ import {
     Grid,
     IconButton,
     Button
+
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -332,12 +333,10 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
                                 setRoom7(e.target.checked)
 
                             }
-
-
                             } />
                         </Form.Group>
 
-                        <Button type="submit" variant="success">
+                        <Button type="submit" variant="contained" color="success">
                             Buchen
                         </Button>
                     </Form>

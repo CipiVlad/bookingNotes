@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { Button } from "@mui/material";
 import moment from "moment";
 import axios from "axios";
 
@@ -206,18 +207,7 @@ const Buchungs_Bearbeitung = () => {
                         }
                     />
                 </Form.Group>
-                {/* <Form.Group controlId="room">
-                    <Form.Label>Zimmer</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="room"
-                        required
-                        value={bookingData.room}
-                        onChange={(e) =>
-                            setBookingData({ ...bookingData, room: e.target.value })
-                        }
-                    />
-                </Form.Group> */}
+
                 <Form.Group controlId="room">
                     <Form.Label>Zimmer</Form.Label>
                     <br />
@@ -252,8 +242,8 @@ const Buchungs_Bearbeitung = () => {
                     } />
                 </Form.Group>
 
-                <Button onClick={handleEdit} variant="success">
-                    Buchen
+                <Button onClick={handleEdit} variant="contained" color="success">
+                    Änderungen übernehmen
                 </Button>
             </Form>
         </div>

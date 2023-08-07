@@ -1,4 +1,3 @@
-
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -33,8 +32,21 @@ export default function ÜbersichtsCard(props) {
         props.onDelete(props.id);
     };
 
+    //  
 
+    let mappedRooms = props.room.map(e => e)
+    // console.log(mappedRooms);
+    // i.e.: [false, true, false, false, false, false, false, false]
 
+    // store pushed loop
+    let convertIndexOfRooms = []
+
+    // loop through the length of mappedRooms
+    // get index of each position
+    // push it to store and add + 1 to start from 1 
+    for (let i = 0; i < mappedRooms.length; i++) {
+        if (mappedRooms[i]) convertIndexOfRooms.push(i + 1)
+    }
 
     return (
         <>
@@ -69,9 +81,17 @@ export default function ÜbersichtsCard(props) {
                         <a href="tel:">{props.phoneNumber}</a>
                     </td>
                     <td>{props.persons}</td>
-                    {/* alternative Lösung suchen für die Anzeige der gebuchten Zimmer */}
-                    <td>{props.room.map(e => e.number1)}</td>
-                    <td>{props.price}</td>
+
+                    {/* 
+                    since input checkbox 'all' results in an array [1,2,3,4,5,6,7,8]
+                    set up a condition:
+                    first join('') to concatinate to 12345678
+                    then: if number is greater than 7 (sum of all room numbers) return 'all', else
+                    return the simple convertIndexRooms Number
+                    */}
+                    <td>{convertIndexOfRooms.join('') > 7 ? 'all' : convertIndexOfRooms}</td>
+
+                    <td>{props.price} €</td>
                     <td>
                         <Link to={`/edit/${props.id}`} state={props.bookings}>
                             <IconButton>
