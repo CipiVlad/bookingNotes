@@ -86,19 +86,39 @@
       "name": "Noel AJ",
       "phoneNumber": "20182",
       "emailAddress": "anam.a@wei.net",
-      "persons": "2",
+      "persons": "4",
       "price": "56",
       "room": [
         false,
+        false,
+        false,
         true,
-        false,
-        false,
-        false,
+        true,
         false,
         false,
         false
       ],
       "id": 5
+    },
+    {
+      "startDate": "2023-08-12",
+      "endDate": "2023-08-13",
+      "name": "gruppe",
+      "phoneNumber": "9428230238",
+      "emailAddress": "g@g.com",
+      "persons": "14",
+      "price": "375",
+      "room": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "id": 6
     }
   ],
   "offeringList": [],

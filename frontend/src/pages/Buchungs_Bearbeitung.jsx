@@ -225,7 +225,7 @@ const Buchungs_Bearbeitung = () => {
                     <input type="checkbox" checked={room6 || allRooms} onChange={(e) => setRoom6(e.target.checked)} />
                     <label htmlFor="">7</label>
                     <input type="checkbox" checked={room7 || allRooms} onChange={(e) => setRoom7(e.target.checked)} />
-                    <label htmlFor="">all</label>
+                    <label htmlFor="">alle</label>
                     <input type="checkbox" checked={allRooms} onChange={(e) => {
                         setAllRooms(e.target.checked)
                         setRoom1(e.target.checked)
@@ -235,11 +235,9 @@ const Buchungs_Bearbeitung = () => {
                         setRoom5(e.target.checked)
                         setRoom6(e.target.checked)
                         setRoom7(e.target.checked)
-
                     }
-
-
-                    } />
+                    }
+                    />
                 </Form.Group>
 
                 <Button onClick={handleEdit} variant="contained" color="success">

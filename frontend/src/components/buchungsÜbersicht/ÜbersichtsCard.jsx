@@ -11,7 +11,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Slide from '@mui/material/Slide';
 
-
 //mui confirmation dialog for delete
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -38,7 +37,7 @@ export default function ÜbersichtsCard(props) {
     // console.log(mappedRooms);
     // i.e.: [false, true, false, false, false, false, false, false]
 
-    // store pushed loop
+    // store to push loop results
     let convertIndexOfRooms = []
 
     // loop through the length of mappedRooms
@@ -73,7 +72,7 @@ export default function ÜbersichtsCard(props) {
                 <tr >
                     <td>{props.id}</td>
                     <td>{props.name}</td>
-                    <td>{props.startDate} - {props.endDate}</td>
+                    <td>{props.startDate.slice(5)} - {props.endDate}</td>
                     <td>
                         <a href="mailto:">{props.emailAddress}</a>
                     </td>
@@ -89,7 +88,8 @@ export default function ÜbersichtsCard(props) {
                     then: if number is greater than 7 (sum of all room numbers) return 'all', else
                     return the simple convertIndexRooms Number
                     */}
-                    <td>{convertIndexOfRooms.join('') > 7 ? 'all' : convertIndexOfRooms}</td>
+                    <td>{convertIndexOfRooms.join('') > 12345677 ? 'alle' : convertIndexOfRooms.map(e => e + " ")}</td>
+
 
                     <td>{props.price} €</td>
                     <td>
