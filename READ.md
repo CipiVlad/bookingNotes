@@ -43,6 +43,8 @@ MERN-stack with redux and redux-toolkit
                         -- Zimmeranzahl, Preise editieren
                         -- Passwörter, Email editieren
                         -- Backup-Plan (jede Buchungsänderung wird in die Cloud geladen; alle 30 Tage ein locales Backup)
+                        -- Account Löschen
+                        -- Neuen Account anlegen
                         ...
                 -- Email
                     -- Posteingang verbunden mit eigener Emailadresse
