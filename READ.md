@@ -247,3 +247,16 @@ export default function App() {
         -- save all bookings to pdf file
         -- save to unique local folder (i.e "Bookings 2023")
 
+
+***
+
+    => redux Implementierung  
+        + in welchen components wird der booking state verarbeitet?
+          -- BelegungsPlan.jsx
+          -- WeekDays.jsx
+          -- WeeklyCalendar.jsx
+          -- RoomLogic.jsx
+          -- ÜbersichtsCard.jsx
+          -- Buchungs_Bearbeitung.jsx
+          -- Buchungsübersicht.jsx
+          -- Kundenstamm.jsx

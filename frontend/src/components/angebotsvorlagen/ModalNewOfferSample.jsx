@@ -27,7 +27,11 @@ const ModalNewOfferSample = ({ handleAddNewOffer, offerSampleData, setOfferSampl
                     </Form.Group>
                     <Form.Group controlId="text">
                         <Form.Label>Text</Form.Label>
-                        <Form.Control
+                        <br />
+                        <TextField
+                            multiline
+                            rows={14}
+                            sx={{ width: '100%' }}
                             type="text"
                             name="text"
                             required

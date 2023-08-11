@@ -15,6 +15,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Slide from '@mui/material/Slide';
 
+import '../../css/Vorlagen.css'
 
 //mui confirmation dialog for delete
 
