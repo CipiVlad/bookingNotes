@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Typography,
     Grid,
@@ -12,10 +12,15 @@ import {
     TableBody,
     TableRow,
     TableCell,
-    Paper
+    Paper,
+    Tooltip
 } from '@mui/material';
+import '../../css/RoomLogic.css'
 
-const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOpenModal }) => {
+
+
+const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOpenModal, bookings }) => {
+    // console.log(bookings);
 
     const weekdays = moment.weekdaysMin();
     const startOfWeek = moment().isoWeek(currentWeek).startOf("isoWeek");
@@ -25,7 +30,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
      * In diesem  Code durchlaufen wir nun das bookingData-Array und überprüfen jedes Zimmer in der room-Liste der Buchung. Wenn das Zimmer als true markiert ist, wird es zur entsprechenden Zimmernummer in bookingsByRoom hinzugefügt, und die Zellen für die Buchungen in diesem Zimmer werden entsprechend eingefärbt. Dadurch werden jetzt alle ausgewählten Zimmer im gleichen Zeitraum richtig angezeigt.
      */
     const bookingsByRoom = {};
-    for (const booking of bookingData) {
+    for (const booking of bookings) {
         for (let i = 0; i < booking.room.length; i++) {
             if (booking.room[i]) {
                 const roomNumber = i + 1;
@@ -36,6 +41,28 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
             }
         }
     }
+
+    // console.log(bookingsByRoom);
+
+    //styles hovering table cell state and handler
+    const [isHovering, setisHovering] = useState(false)
+    let content;
+    const handleMouseEnter = () => {
+        setisHovering(true)
+        // return content = (
+        //     bookings.map((e) => {
+        //         <div>
+        //             {e.name}
+        //         </div>
+        //     })
+        // )
+
+    }
+    const handleMouseLeave = () => {
+        setisHovering(false)
+    }
+
+
 
     const weekDaysList = weekdays.map((day, index) => {
         const dayOfWeek = (index + 1) % 7;
@@ -53,7 +80,9 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                     <Table aria-label='simple table'>
                         <TableHead>
                             <TableRow style={{ height: '155px', background: 'lightsteelblue', borderBottom: '2px solid darkgray' }}>
-                                <TableCell>
+                                <TableCell
+
+                                >
                                     <Typography variant="h6" className="day-name">
                                         {weekdays[dayOfWeek]}
                                     </Typography>
@@ -65,8 +94,9 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                         </TableHead>
                         <TableBody>
                             {Array.from({ length: 7 }).map((_, roomIndex) => (
-                                <TableRow key={roomIndex} style={{ height: '155px' }}>
+                                <TableRow key={roomIndex} style={{ height: '155px' }}                                >
                                     <TableCell
+
                                         // Erklärung sieh ganz unten:
                                         className=
                                         {
@@ -83,14 +113,32 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                                                 :
                                                 ""
                                         }
+
                                         style={{ textAlign: 'center' }}
                                     >
                                         {bookingsByRoom[roomIndex + 1] &&
                                             bookingsByRoom[roomIndex + 1].map(booking => (
                                                 // '[)' bedeutet, dass startDate inkludiert wird
                                                 date.isBetween(booking.startDate, booking.endDate, "day", '[)') ? (
-                                                    <div key={booking.id}>
-                                                        {booking.name}
+                                                    <div key={booking.id} style={{ color: isHovering ? 'yellow' : 'black' }}
+                                                    >
+                                                        <>
+                                                            <Tooltip title={
+                                                                <div>
+                                                                    <p>
+                                                                        {booking.price} €/Nacht
+                                                                    </p>
+                                                                    <p>
+                                                                        {booking.persons} Person(en)
+                                                                    </p>
+
+                                                                </div>
+                                                            }>
+                                                                <div
+                                                                >{booking.name}</div>
+
+                                                            </Tooltip>
+                                                        </>
                                                     </div>
                                                 ) : null
                                             ))}
@@ -109,6 +157,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
             <Grid container spacing={2} className="calendar-days">
                 {weekDaysList}
             </Grid>
+
         </>
     );
 }

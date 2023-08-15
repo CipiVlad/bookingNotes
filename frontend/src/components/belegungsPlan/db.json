@@ -119,6 +119,26 @@
         true
       ],
       "id": 6
+    },
+    {
+      "startDate": "2023-08-11",
+      "endDate": "2023-08-12",
+      "name": "bookingDATA",
+      "phoneNumber": "1",
+      "emailAddress": "b.d@c",
+      "persons": "1",
+      "price": "22",
+      "room": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "id": 7
     }
   ],
   "offeringList": [],

@@ -19,7 +19,6 @@ import { Modal, Form } from "react-bootstrap";
 
 const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
 
-
     const year = moment().isoWeekYear()
 
     //!states
@@ -87,8 +86,8 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
 
         // Erstelle ein Objekt mit den Buchungsdaten
         const newBooking = {
-            startDate: moment(startDate).format("YYYY-MM-DD"),
-            endDate: moment(endDate).format("YYYY-MM-DD"),
+            startDate: moment(startDate).locale('de-DE').format("YYYY-MM-DD"),
+            endDate: moment(endDate).locale('de-DE').format("YYYY-MM-DD"),
             name,
             phoneNumber,
             emailAddress,
@@ -196,6 +195,7 @@ const WeeklyCalendar = ({ selectedDay, bookings, setBookings }) => {
                 bookingData={bookings} // Pass the bookings data to RoomLogic
                 selectedDay={selectedDay}
                 handleOpenModal={handleOpenModal}
+                bookings={bookings}
             />
 
             {/* <ModalBooking
