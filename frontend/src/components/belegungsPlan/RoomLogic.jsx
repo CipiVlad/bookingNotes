@@ -16,6 +16,8 @@ import {
     Tooltip
 } from '@mui/material';
 import '../../css/RoomLogic.css'
+import RoomNumberCard from './RoomNumberCard';
+
 
 
 
@@ -94,7 +96,8 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                         </TableHead>
                         <TableBody>
                             {Array.from({ length: 7 }).map((_, roomIndex) => (
-                                <TableRow key={roomIndex} style={{ height: '155px' }}                                >
+                                <TableRow key={roomIndex} style={{ height: '155px' }}
+                                >
                                     <TableCell
 
                                         // Erklärung sieh ganz unten:
