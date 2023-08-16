@@ -1,8 +1,12 @@
-import React from 'react'
+import SettingsDashboard from '../components/einstellungen/settingsDashboard'
+
 
 const Einstellungen = () => {
+
     return (
-        <div>Einstellungen</div>
+        <div>
+            <SettingsDashboard />
+        </div>
     )
 }
 
