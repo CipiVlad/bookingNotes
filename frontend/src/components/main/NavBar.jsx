@@ -1,4 +1,4 @@
-import { AppBar, Typography, Toolbar, Tabs, Tab, Box, Grid, IconButton } from '@mui/material';
+import { AppBar, Typography, Toolbar, Tabs, Tab, Box, Grid, IconButton, Tooltip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import SettingsIcon from '@mui/icons-material/Settings';
 import MailIcon from '@mui/icons-material/Mail';
@@ -54,41 +54,57 @@ const NavBar = () => {
                         >
                             <Grid item xs={1}>
                                 <Link onClick={() => navigate(-1)}>
-                                    <Tab icon={<ArrowBackIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Zurück'}>
+                                        <Tab icon={<ArrowBackIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/einstellungen'}>
-                                    <Tab icon={<SettingsIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Einstellungen'}>
+                                        <Tab icon={<SettingsIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/email'}>
-                                    <Tab icon={<MailIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Emails'}>
+                                        <Tab icon={<MailIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/'}>
-                                    <Tab icon={< CalendarMonthIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Buchungskalender'}>
+                                        <Tab icon={< CalendarMonthIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/buchungen'}>
-                                    <Tab icon={<MenuBookIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Buchungsübersicht'}>
+                                        <Tab icon={<MenuBookIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/netzwerk'}>
-                                    <Tab icon={<ShareIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Netzwerk'}>
+                                        <Tab icon={<ShareIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
                                 <Link to={'/kunden'}>
-                                    <Tab icon={<PermContactCalendarIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    <Tooltip title={'Gäste'}>
+                                        <Tab icon={<PermContactCalendarIcon />} iconPosition="end" style={{ color: 'white' }} />
+                                    </Tooltip>
                                 </Link>
                             </Grid>
                             <Grid item xs={1}>
-                                <Tab icon={<PrintIcon />} iconPosition="end" onClick={print} style={{ color: 'white' }} />
+                                <Tooltip title={'Seite drucken'}>
+                                    <Tab icon={<PrintIcon />} iconPosition="end" onClick={print} style={{ color: 'white' }} />
+                                </Tooltip>
                             </Grid>
                         </Grid>
                     </Box>

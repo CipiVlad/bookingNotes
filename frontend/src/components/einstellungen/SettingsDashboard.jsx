@@ -16,8 +16,8 @@ import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
 const SettingsDashboard = (props) => {
     return (
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-            <Grid item xs={6}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{ padding: '20px' }}>
+            <Grid item xs={6} >
                 <Link>
                     <Paper elevation={3} style={{ textAlign: 'center', padding: '10%' }}>
                         <IconButton  >
