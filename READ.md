@@ -240,6 +240,15 @@ export default function App() {
 }
 
 
+*** 
+    => wichtige BugFix:
+        -- Kalenderjahr und Kalenderwoche müssen dynamisch aktualisiert werden, 
+           sobald das Jahr oder die letzte Kalenderwoche erreicht wurden: z.B. 2023 KW 53 muss zu 2024 KW 1 werden
+           derzeit bleibt 2023 bestehen und KW geht weiter zu 54,55,56 ... 
+
+*** 
+    => ein "Rückgängig machen" - Button wird benötigt // auch für die Wiederherstellung einer Session nach abprupten abbrechen
+        -- z.B um nach Löschvorgang bestimmte Daten wiederherzustellen
 
       
 ***    

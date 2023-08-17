@@ -105,7 +105,7 @@ const Buchungs_Bearbeitung = () => {
             });
 
             // zurück zu /buchungen
-            navigate('/buchungen')
+            navigate('/')
         } catch (error) {
             console.error("Fehler beim Buchen:", error);
         }

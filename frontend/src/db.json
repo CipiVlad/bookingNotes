@@ -139,6 +139,26 @@
         false
       ],
       "id": 7
+    },
+    {
+      "startDate": "2023-08-14",
+      "endDate": "2023-08-19",
+      "name": "Nola",
+      "phoneNumber": "666 332",
+      "emailAddress": "n@ala.com",
+      "persons": "1",
+      "price": "27",
+      "room": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "id": 8
     }
   ],
   "offeringList": [],

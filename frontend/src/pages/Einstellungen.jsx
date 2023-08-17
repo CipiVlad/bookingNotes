@@ -1,5 +1,4 @@
-import SettingsDashboard from '../components/einstellungen/settingsDashboard'
-
+import SettingsDashboard from '../components/einstellungen/SettingsDashboard'
 
 const Einstellungen = () => {
 

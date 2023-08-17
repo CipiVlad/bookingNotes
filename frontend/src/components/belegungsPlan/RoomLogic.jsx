@@ -46,26 +46,6 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
 
     // console.log(bookingsByRoom);
 
-    //styles hovering table cell state and handler
-    const [isHovering, setisHovering] = useState(false)
-    let content;
-    const handleMouseEnter = () => {
-        setisHovering(true)
-        // return content = (
-        //     bookings.map((e) => {
-        //         <div>
-        //             {e.name}
-        //         </div>
-        //     })
-        // )
-
-    }
-    const handleMouseLeave = () => {
-        setisHovering(false)
-    }
-
-
-
     const weekDaysList = weekdays.map((day, index) => {
         const dayOfWeek = (index + 1) % 7;
         const date = startOfWeek.clone().add(index, "days");
@@ -123,7 +103,7 @@ const RoomLogic = ({ currentWeek, bookedDays, bookingData, selectedDay, handleOp
                                             bookingsByRoom[roomIndex + 1].map(booking => (
                                                 // '[)' bedeutet, dass startDate inkludiert wird
                                                 date.isBetween(booking.startDate, booking.endDate, "day", '[)') ? (
-                                                    <div key={booking.id} style={{ color: isHovering ? 'yellow' : 'black' }}
+                                                    <div key={booking.id}
                                                     >
                                                         <>
                                                             <Tooltip title={
