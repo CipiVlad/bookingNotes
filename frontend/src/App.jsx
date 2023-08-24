@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './App.css'
@@ -19,34 +20,47 @@ import Angebotsvorlage from './pages/subpages/vorlagen/Angebotsvorlage'
 import Rechnungsvorlage from './pages/subpages/vorlagen/Rechnungsvorlage'
 import AngebotsvorlagenEditor from './pages/subpages/vorlagen/AngebotsvorlagenEditor'
 import MietvertragsvorlagenEditor from './pages/subpages/vorlagen/MietvertragsvorlagenEditor'
+import ColorMode from './pages/subpages/einstellungen/ColorMode'
+
+//mui darkmode
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+const darkTheme = createTheme({
+  palette: {
+    mode: 'light'
+  }
+})
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<BelegungsPlan />} />
-          <Route path='/angebote' element={<Angebote />} />
-          <Route path='/mietverträge' element={<Mietverträge />} />
-          <Route path='/rechnungen' element={<Rechnungen />} />
-          <Route path='/vorlagen' element={<Vorlagen />} />
-          <Route path='/vorlagen/mietvertragsvorlage' element={<Mietvertragsvorlage />} />
-          <Route path='/vorlagen/angebotsvorlage' element={<Angebotsvorlage />} />
-          <Route path='/vorlagen/angebotsvorlageneditor/:id' element={<AngebotsvorlagenEditor />} />
-          <Route path='/vorlagen/mietvertragsvorlageneditor/:id' element={<MietvertragsvorlagenEditor />} />
-          <Route path='/vorlagen/rechnungsvorlage' element={<Rechnungsvorlage />} />
-          <Route path='/statistik' element={<Statistik />} />
-          <Route path='/einstellungen' element={<Einstellungen />} />
-          <Route path='/email' element={<Email />} />
-          <Route path='/buchungen' element={<Buchungsübersicht />} />
-          <Route path='/edit/:id' element={<Buchungs_Bearbeitung />} />
-          <Route path='/netzwerk' element={<Netzwerk />} />
-          <Route path='/kunden' element={<Kundenstamm />} />
-        </Routes>
-      </div>
-    </Router>
+    <ThemeProvider theme={darkTheme}>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<BelegungsPlan />} />
+            <Route path='/angebote' element={<Angebote />} />
+            <Route path='/mietverträge' element={<Mietverträge />} />
+            <Route path='/rechnungen' element={<Rechnungen />} />
+            <Route path='/vorlagen' element={<Vorlagen />} />
+            <Route path='/vorlagen/mietvertragsvorlage' element={<Mietvertragsvorlage />} />
+            <Route path='/vorlagen/angebotsvorlage' element={<Angebotsvorlage />} />
+            <Route path='/vorlagen/angebotsvorlageneditor/:id' element={<AngebotsvorlagenEditor />} />
+            <Route path='/vorlagen/mietvertragsvorlageneditor/:id' element={<MietvertragsvorlagenEditor />} />
+            <Route path='/vorlagen/rechnungsvorlage' element={<Rechnungsvorlage />} />
+            <Route path='/statistik' element={<Statistik />} />
+            <Route path='/einstellungen' element={<Einstellungen />} />
+            <Route path='/einstellungen/colormode' element={<ColorMode />} />
+            <Route path='/email' element={<Email />} />
+            <Route path='/buchungen' element={<Buchungsübersicht />} />
+            <Route path='/edit/:id' element={<Buchungs_Bearbeitung />} />
+            <Route path='/netzwerk' element={<Netzwerk />} />
+            <Route path='/kunden' element={<Kundenstamm />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
+
   )
 }
 

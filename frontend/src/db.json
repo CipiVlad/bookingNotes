@@ -159,6 +159,66 @@
         false
       ],
       "id": 8
+    },
+    {
+      "startDate": "2023-08-24",
+      "endDate": "2023-08-26",
+      "name": "Lustig",
+      "phoneNumber": "123666",
+      "emailAddress": "l@ulk.com",
+      "persons": "2",
+      "price": "54",
+      "room": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "id": 9
+    },
+    {
+      "startDate": "2023-08-21",
+      "endDate": "2023-08-25",
+      "name": "Firma SoUndSo",
+      "phoneNumber": "444 666 977",
+      "emailAddress": "s@us.de",
+      "persons": "1",
+      "price": "27",
+      "room": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "id": 10
+    },
+    {
+      "startDate": "2023-08-26",
+      "endDate": "2023-08-28",
+      "name": "Gruppe St.Rough",
+      "phoneNumber": "779",
+      "emailAddress": "st.rough@a.fr",
+      "persons": "14",
+      "price": "275",
+      "room": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "id": 11
     }
   ],
   "offeringList": [],

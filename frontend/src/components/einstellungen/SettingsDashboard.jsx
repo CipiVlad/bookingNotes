@@ -13,7 +13,6 @@ import PersonOffTwoToneIcon from '@mui/icons-material/PersonOffTwoTone';
 //create Account
 import PersonAddTwoToneIcon from '@mui/icons-material/PersonAddTwoTone';
 
-
 const SettingsDashboard = (props) => {
     return (
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} style={{ padding: '20px' }}>
@@ -28,7 +27,7 @@ const SettingsDashboard = (props) => {
                 </Link>
             </Grid>
             <Grid item xs={6}>
-                <Link>
+                <Link to='/einstellungen/colormode'>
                     <Paper elevation={3} style={{ textAlign: 'center', padding: '10%' }}>
                         <IconButton>
                             <SettingsBrightnessTwoToneIcon style={{ fontSize: '100px' }} />
